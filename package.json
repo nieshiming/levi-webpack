@@ -8,13 +8,23 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server  --config ./build/webpack.dev.js --progress",
     "build:dev": "cross-env NODE_ENV=development webpack --config ./build/webpack.dev.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.js",
-    "lint": "eslint --fix src/*.jsx"
+    "lint": "eslint --fix src/**/*.{js,jsx}",
+    "beauty": "prettier --write",
+    "clean": "rm -rf ./node_modules/.cache"
   },
-  "pre-commit": {
-    "run": [
-      "lint"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**?/.{js,jsx,ts,tsx}": [
+      "yarn lint",
+      "yarn beauty"
     ],
-    "silent": true
+    "src/*.{css,scss,less,json,html,md,markdown}": [
+      "yarn beauty"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -34,7 +44,9 @@
     "eslint-plugin-react-hooks": "^3.0.0",
     "happypack": "^5.0.1",
     "html-webpack-plugin": "^4.2.0",
-    "pre-commit": "^1.2.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.6",
+    "prettier": "^2.0.4",
     "progress-bar-webpack-plugin": "^2.1.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
