@@ -10,6 +10,9 @@
     "build:prod": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.js",
     "lint": "eslint --fix src/*.jsx"
   },
+  "pre-commit": {
+    "run": ["lint"]
+  },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
@@ -28,6 +31,7 @@
     "eslint-plugin-react-hooks": "^3.0.0",
     "happypack": "^5.0.1",
     "html-webpack-plugin": "^4.2.0",
+    "pre-commit": "^1.2.2",
     "progress-bar-webpack-plugin": "^2.1.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
