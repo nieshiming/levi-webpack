@@ -11,7 +11,10 @@
     "lint": "eslint --fix src/*.jsx"
   },
   "pre-commit": {
-    "run": ["lint"]
+    "run": [
+      "lint"
+    ],
+    "silent": true
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
