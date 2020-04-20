@@ -8,7 +8,7 @@ const Bold = styled.div`
 
 const lists = ["jack", "levi", "mary"];
 const name = 123;
-console.log(name);
+console.log(1);
 
 const Child = function () {
   return (
