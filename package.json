@@ -8,7 +8,7 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server  --config ./build/webpack.dev.js --progress",
     "build:dev": "cross-env NODE_ENV=development webpack --config ./build/webpack.dev.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.js",
-    "lint": "eslint --fix src/**/*.{js,jsx}",
+    "lint": "eslint --fix",
     "beauty": "prettier --write",
     "clean": "rm -rf ./node_modules/.cache"
   },
@@ -18,7 +18,7 @@
     }
   },
   "lint-staged": {
-    "src/**?/.{js,jsx,ts,tsx}": [
+    "src/**/*.{js,jsx,ts,tsx}": [
       "yarn lint",
       "yarn beauty"
     ],
