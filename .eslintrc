@@ -25,6 +25,9 @@
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
+      "webpack": {
+        "config": "./build/webpack.common.js"
       }
     },
     "react": {

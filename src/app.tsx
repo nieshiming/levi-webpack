@@ -2,12 +2,16 @@ import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import styled from 'styled-components';
 import { Card, Button, Rate } from 'antd';
+import { shop } from './enum';
 
 const Bold = styled.div`
   color: red;
 `;
 
-const lists = ['jack', 'levi', 'mary'];
+new Promise(resolve => resolve(2));
+
+const newLists = ['jack', 'levi', 'mary'];
+console.log(shop);
 
 const Child = function () {
   return (
@@ -16,7 +20,7 @@ const Child = function () {
       <br />
       <Rate allowHalf defaultValue={2.5} />
 
-      {lists.map(item => (
+      {newLists.map(item => (
         <Bold key={item}>{item}</Bold>
       ))}
     </Card>

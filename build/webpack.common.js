@@ -12,11 +12,15 @@ const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 
 module.exports = {
   entry: {
-    app: './src/index.jsx'
+    app: './src/index.tsx'
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].bundle.js'
+  },
+  resolve: {
+    alias: {},
+    extensions: ['.js', '.ts', '.jsx', '.tsx']
   },
   module: {
     rules: [
@@ -39,7 +43,7 @@ module.exports = {
         loader: 'eslint-loader'
       },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|ts)x?$/,
         exclude: '/node_modules/',
         loader: ['happypack/loader?id=js']
       }
@@ -71,7 +75,6 @@ module.exports = {
       loaders: [
         {
           loader: 'babel-loader',
-          include: path.resolve(__dirname, '../src/**/js'),
           options: {
             cacheDirectory: true
           }
