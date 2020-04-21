@@ -2,16 +2,12 @@ import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import styled from 'styled-components';
 import { Card, Button, Rate } from 'antd';
-import { shop } from './enum';
 
 const Bold = styled.div`
   color: red;
 `;
 
-new Promise(resolve => resolve(2));
-
 const newLists = ['jack', 'levi', 'mary'];
-console.log(shop);
 
 const Child = function () {
   return (

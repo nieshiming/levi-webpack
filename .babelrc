@@ -14,6 +14,11 @@
   "plugins": [
     "react-hot-loader/babel",
     ["@babel/plugin-transform-runtime", { "corejs": 3 }],
+    ["@babel/plugin-proposal-decorators", { "legacy": true }] /** 装饰器 */,
+    [
+      "@babel/plugin-proposal-class-properties",
+      { "loose": true }
+    ] /** 转换class  定义属性&&箭头函数*/,
     "@babel/plugin-syntax-dynamic-import",
     [
       "import",
