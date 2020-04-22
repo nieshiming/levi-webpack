@@ -45,7 +45,7 @@ webpack.config.js = {
 
 webpack: 执行编译/打包命令(*)
 webpack-dev-serber: 启动本地服务
- --config ./build/webpack.dev.js： 指定webpack入口文件     不指定默认根目录的webpack.config.js
+--config ./build/webpack.dev.js： 指定webpack入口文件     不指定默认根目录的webpack.config.js
 ```
 
 - [webpack-merge](https://www.npmjs.com/package/webpack-merge) merge 公共 webpack 配置
