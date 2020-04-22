@@ -113,8 +113,11 @@ webpack-dev-serber: 启动本地服务
     @babel/preset-typescript => 转化tsx,ts 只 jsx，js ，无需引入ts-loader
 ```
 
+### :anchor: eslint
+
 #### :fire: 优化
 
 - [happypack](https://www.npmjs.com/package/happypack) 启动多线程编译打包
 - [style-components](https://www.npmjs.com/package/styled-components) 搭配 react 组件，妙用
+- commit 提交规范 引入 husky + .prettier 规范 git commit, 编译先检查 eslint, 通过在在按照 prettier 配置格式化文件(**\* 只针对暂存区的文件进行校验 \*\***)
 - 分包待补充...
