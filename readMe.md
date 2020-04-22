@@ -53,12 +53,21 @@ webpack-dev-serber: 启动本地服务
 - [progress-bar-webpack-plugin](https://www.npmjs.com/package/progress-bar-webpack-plugin) 进度条插件
 - [clean-webpack-plugin](https://www.npmjs.com/search?q=clean-webpack-plugin) 编译时删除文件，接受数组删除指定文件/文件夹
 - [cross-env](https://juejin.im/post/5d78a11ee51d4561af16dd9f) 解决夸平台设置 NODE_ENV 报错
+- css-loader
+- style-loader
+- eslint-loder
+- babel-loder
+- happppack
 
-#### react
+#### :santa: react
 
-- react / react-dom
-- react-hot-loader/babel (热加载)
+- react / react-dom / react-router
+- [react-hot-loader/babel](https://www.npmjs.com/package/react-hot-loader) (热加载)
 
-#### babel
+#### :dog: babel
 
-#### 优化
+#### :fire: 优化
+
+- [happypack](https://www.npmjs.com/package/happypack) 启动多线程编译打包
+- [style-components](https://www.npmjs.com/package/styled-components) 搭配 react 组件，妙用
+- 分包待补充...
