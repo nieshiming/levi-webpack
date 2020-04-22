@@ -107,6 +107,10 @@ webpack-dev-serber: 启动本地服务
         ]
     }
 
+
+    babel 预设 preset => 包含一系列的插件集合，未包含的到的可以plugin引入
+    @babel/preset-react => 支持react， jsx语法
+    @babel/preset-typescript => 转化tsx,ts 只 jsx，js ，无需引入ts-loader
 ```
 
 #### :fire: 优化
