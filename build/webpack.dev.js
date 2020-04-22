@@ -1,5 +1,8 @@
+const path = require('path');
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
+
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -13,5 +16,11 @@ module.exports = merge(common, {
   module: {
     rules: []
   },
-  plugins: []
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({
+      eslint: true,
+      memoryLimit: 1024 * 2,
+      tsconfig: path.resolve(__dirname, '../tsconfig.json')
+    })
+  ]
 });

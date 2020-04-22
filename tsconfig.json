@@ -4,7 +4,7 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "sourceMap": true,
-    "allowSyntheticDefaultImports": false,
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "Node",
     "module": "es6",
     "target": "es5",
