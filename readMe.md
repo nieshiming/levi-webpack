@@ -34,12 +34,12 @@ webpack.config.js = {
 }
 
 "scripts": {
-"dev": "cross-env NODE_ENV=development webpack-dev-server  --config ./build/webpack.dev.js",
-"build:dev": "cross-env NODE_ENV=development webpack --config ./build/webpack.dev.js",
-"build:prod": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.js",
-"lint": "eslint --fix",
-"beauty": "prettier --write",
-"clean": "rm -rf ./node_modules/.cache"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server  --config ./build/webpack.dev.js",
+    "build:dev": "cross-env NODE_ENV=development webpack --config ./build/webpack.dev.js",
+    "build:prod": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.js",
+    "lint": "eslint --fix",
+    "beauty": "prettier --write",
+    "clean": "rm -rf ./node_modules/.cache"
 },
 
 
