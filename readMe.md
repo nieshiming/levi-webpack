@@ -131,6 +131,18 @@ webpack 配置别名 webpack 别名保持编译可索引
 
 ### :anchor: eslint
 
+> ts 引入 eslint 配置， add eslint/@typescript-eslint/parser/@typescript-eslint/eslint-plugin
+>
+> - eslint: yarn eslint init 跟随指导生成默认配置文件
+> - @typescript-eslint/parser： eslint 解析器，用于解析 typescript,从而检查和规范 Typescript 代码
+> - @typescript-eslint/eslint-plugin: eslint 插件，定义了各种检测检车 typescript 代码规范
+> - 结合 Prettier 给代码增加格式化工具： eslint-config-prettier 、 eslint-plugin-prettier, 同时新建.prettierrc 文件
+>   - prettier：prettier 插件的核心代码
+>   - eslint-config-prettier：解决 ESLint 中的样式规范和 prettier 中样式规范的冲突，以 prettier 的样式规范为准，使 ESLint 中的样式规范自动失效
+>   - eslint-plugin-prettier：将 prettier 作为 ESLint 规范来使用
+>   - prettier/@typescript-eslint：使得@typescript-eslint 中的样式规范失效，遵循 prettier 中的样式规范
+>   - plugin:prettier/recommended：使用 prettier 中的样式规范，且如果使得 ESLint 会检测 prettier 的格式问题，同样将格式问题以 error 的形式抛出
+
 #### :fire: 优化
 
 - [happypack](https://www.npmjs.com/package/happypack) 启动多线程编译打包
