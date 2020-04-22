@@ -29,7 +29,7 @@ webpack.config.js = {
         module: {
             rules:[]
         },
-        plugin: []
+        plugins: []
     }
 }
 
