@@ -72,6 +72,8 @@ webpack-dev-serber: 启动本地服务
 - [不容错过的 Babel7 知识](https://juejin.im/post/5ddff3abe51d4502d56bd143)
 - [一口(很长的)气了解 babel](https://juejin.im/post/5c19c5e0e51d4502a232c1c6)
 - [core-js@3, babel 展望未来](https://juejin.im/post/5e355be0f265da3e491a53c5)
+- [让 babel 帮你编译 typescript](https://github.com/frontend9/fe9-library/issues/23)
+- [Webpack 转译 Typescript 现有方案](https://juejin.im/post/5e2690dce51d454d310fb4ef)
 
 ```
     {
