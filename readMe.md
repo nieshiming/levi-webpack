@@ -59,6 +59,20 @@ webpack-dev-serber: 启动本地服务
 - babel-loder
 - happppack
 
+webpack 配置别名 webpack 别名保持编译可索引
+
+```
+   webpack.base.js resolve 配置alias别名   编译时候索引
+       '@': path.resolve(__dirname, '../src/'),
+       enums: path.resolve(__dirname, '../src/enum/')
+
+   tsconfig.json 配置path,同时要指定--baseUrl
+       "paths": {
+           "@/*": ["src/*"],
+           "enums/*": ["src/enum/*"]
+       }
+```
+
 #### :santa: react
 
 - react / react-dom / react-router
