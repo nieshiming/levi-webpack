@@ -4,7 +4,7 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "sourceMap": true,
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": false,
     "moduleResolution": "Node",
     "module": "es6",
     "target": "es5",
@@ -15,6 +15,5 @@
       "enums/*": ["src/enum/*"]
     }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  "include": ["./src"]
 }

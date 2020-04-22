@@ -9,7 +9,7 @@ const Bold = styled.div`
   color: red;
 `;
 
-const Child = function () {
+const Child = () => {
   return (
     <Card title="home">
       <Button type="primary">Primary</Button>

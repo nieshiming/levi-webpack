@@ -4,7 +4,11 @@
     "es6": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": [
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended"
+  ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -68,6 +72,5 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off"
-    // "no-empty": "error",
   }
 }
