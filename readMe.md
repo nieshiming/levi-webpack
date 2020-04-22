@@ -64,7 +64,50 @@ webpack-dev-serber: 启动本地服务
 - react / react-dom / react-router
 - [react-hot-loader/babel](https://www.npmjs.com/package/react-hot-loader) (热加载)
 
-#### :dog: babel
+#### :dog: babel7
+
+参考文章；
+
+- [中文官网](https://www.babeljs.cn/docs/babel-preset-typescript)
+- [不容错过的 Babel7 知识](https://juejin.im/post/5ddff3abe51d4502d56bd143)
+- [一口(很长的)气了解 babel](https://juejin.im/post/5c19c5e0e51d4502a232c1c6)
+- [core-js@3, babel 展望未来](https://juejin.im/post/5e355be0f265da3e491a53c5)
+
+```
+    {
+        "presets": [
+            [
+                "@babel/preset-env",
+                {
+                    "targets": {
+                    "browsers": ["> 1%", "not ie <= 8"]
+                    }
+                }
+            ],
+            "@babel/preset-react",
+            "@babel/preset-typescript"
+        ],
+        "plugins": [
+            "react-hot-loader/babel",
+            ["@babel/plugin-transform-runtime", { "corejs": 3 }],
+            ["@babel/plugin-proposal-decorators", { "legacy": true }] /** 装饰器 */,
+            [
+                "@babel/plugin-proposal-class-properties",
+                { "loose": true }
+            ]   /** 转换class  定义属性&&箭头函数*/,
+            "@babel/plugin-syntax-dynamic-import",
+            [
+                "import",
+                {
+                    "libraryName": "antd",
+                    "libraryDirectory": "es",
+                    "style": "css"
+                }
+            ]
+        ]
+    }
+
+```
 
 #### :fire: 优化
 
