@@ -16,7 +16,7 @@
 
 #### webpack
 
-```
+```javascript
 yarn add webpack webpack-cli   安装webpack4 指定包
 
 webpack.config.js = {
@@ -61,7 +61,7 @@ webpack-dev-serber: 启动本地服务
 
 webpack 配置别名 webpack 别名保持编译可索引
 
-```
+```javascript
    webpack.base.js resolve 配置alias别名   编译时候索引
        '@': path.resolve(__dirname, '../src/'),
        enums: path.resolve(__dirname, '../src/enum/')
@@ -89,7 +89,7 @@ webpack 配置别名 webpack 别名保持编译可索引
 - [让 babel 帮你编译 typescript](https://github.com/frontend9/fe9-library/issues/23)
 - [Webpack 转译 Typescript 现有方案](https://juejin.im/post/5e2690dce51d454d310fb4ef)
 
-```
+```javascript
     {
         "presets": [
             [
