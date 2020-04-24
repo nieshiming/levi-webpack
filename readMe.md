@@ -148,4 +148,17 @@ webpack 配置别名 webpack 别名保持编译可索引
 - [happypack](https://www.npmjs.com/package/happypack) 启动多线程编译打包
 - [style-components](https://www.npmjs.com/package/styled-components) 搭配 react 组件，妙用
 - commit 提交规范 引入 husky + .prettier 规范 git commit, 编译先检查 eslint, 通过在在按照 prettier 配置格式化文件(**\* 只针对暂存区的文件进行校验 \*\***)
+- commit 提交规范： yarn add commitlint/cli commitlint/config-conventional -D
+  ```javascript
+    "husky": {
+        "hooks": {,
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
+    },
+  ```
 - 分包待补充...
