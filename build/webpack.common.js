@@ -68,6 +68,7 @@ module.exports = {
       title: 'levis',
       template: path.resolve(__dirname, '../src/index.html'),
       hash: true,
+      favicon: path.resolve(__dirname, '../src/assets/image/favicon.png'),
       minify: {
         collapseWhitespace: true,
         removeComments: true,
