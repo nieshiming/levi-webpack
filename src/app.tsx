@@ -1,29 +1,12 @@
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
-import styled from 'styled-components';
-import { Card, Button, Rate } from 'antd';
-import { newLists } from '@/config';
-import { shop } from 'enums/index';
-import Banner from '@/assets/image/banner.jpg';
-
-const Bold = styled.div`
-  color: red;
-`;
+import { Card } from 'antd';
+import AxiosDemo from '@/pages/axios';
 
 const Child = () => {
   return (
     <Card title="home">
-      <Button type="primary">Primary</Button>
-      <br />
-      <div>
-        <img src={Banner} alt="" style={{ width: 100 }} />
-      </div>
-      {JSON.stringify(shop)}
-      <Rate allowHalf defaultValue={2.5} />
-
-      {newLists.map(item => (
-        <Bold key={item}>{item}</Bold>
-      ))}
+      <AxiosDemo name="axios" />
     </Card>
   );
 };

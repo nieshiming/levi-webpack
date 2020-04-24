@@ -12,7 +12,16 @@ module.exports = merge(common, {
     contentBase: './dist',
     port: 8000,
     hot: true,
-    clientLogLevel: 'none' /** 关闭控制台赘余console */
+    clientLogLevel: 'none' /** 关闭控制台赘余console */,
+    proxy: {
+      /** 设置代理 */
+      '/douban': {
+        target: 'https://douban.uieee.com/',
+        changeOrigin: true,
+        secure: false,
+        pathRewrite: { '^/douban': '' }
+      }
+    }
   },
   module: {
     rules: []

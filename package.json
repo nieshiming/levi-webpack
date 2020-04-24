@@ -74,6 +74,7 @@
   "dependencies": {
     "@babel/runtime-corejs3": "^7.9.2",
     "antd": "^4.1.2",
+    "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "dayjs": "^1.8.24",
     "react": "^16.13.1",
