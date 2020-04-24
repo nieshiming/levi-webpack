@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Card, Button, Rate } from 'antd';
 import { newLists } from '@/config';
 import { shop } from 'enums/index';
-import Banner from '@/assets/img/banner.jpg';
+import Banner from '@/assets/banner.jpg';
 
 const Bold = styled.div`
   color: red;
@@ -16,7 +16,7 @@ const Child = () => {
       <Button type="primary">Primary</Button>
       <br />
       <div>
-        <img src={Banner} alt="" style={{ display: 'none' }} />
+        <img src={Banner} alt="" style={{ width: 100 }} />
       </div>
       {JSON.stringify(shop)}
       <Rate allowHalf defaultValue={2.5} />
