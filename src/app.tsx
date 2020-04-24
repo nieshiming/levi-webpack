@@ -16,7 +16,7 @@ const Child = () => {
       <Button type="primary">Primary</Button>
       <br />
       <div>
-        <img src={Banner} alt="" />
+        <img src={Banner} alt="" style={{ display: 'none' }} />
       </div>
       {JSON.stringify(shop)}
       <Rate allowHalf defaultValue={2.5} />

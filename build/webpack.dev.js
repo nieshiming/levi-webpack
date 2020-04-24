@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
 
@@ -21,6 +22,11 @@ module.exports = merge(common, {
       eslint: true,
       memoryLimit: 1024 * 2,
       tsconfig: path.resolve(__dirname, '../tsconfig.json')
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+      }
     })
   ]
 });
