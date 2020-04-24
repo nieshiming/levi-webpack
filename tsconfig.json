@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "outDir": "./dist/",
     "noImplicitAny": true,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "Node",
-    "module": "es6",
+    "module": "commonjs",
     "target": "es5",
     "jsx": "react",
     "allowJs": true,

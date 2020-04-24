@@ -20,8 +20,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '../src/'),
-      enums: path.resolve(__dirname, '../src/enum/')
+      '@': path.resolve(__dirname, '../src'),
+      enums: path.resolve(__dirname, '../src/enum')
     },
     extensions: ['.js', '.ts', '.jsx', '.tsx']
   },
@@ -39,6 +39,11 @@ module.exports = {
           }
         ],
         include: /node_modules/
+      },
+      {
+        test: /.(png|jpg|gif)$/,
+        loader: 'url-loader',
+        exclude: /node_modules/
       },
       {
         test: /.js$/,
