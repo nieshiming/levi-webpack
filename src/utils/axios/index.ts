@@ -3,7 +3,10 @@ import axios from 'axios';
 const instance = axios.create({
   timeout: 60000,
   headers: {
-    signature: 'levi site'
+    Pragma: 'no-cache',
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    'Cache-Control': 'no-cache, no-store, must-revalidate'
   }
 });
 
