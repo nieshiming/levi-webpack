@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Card, Button, Rate } from 'antd';
 import { newLists } from '@/config';
 import { shop } from 'enums/index';
-import Banner from '@/assets/banner.jpg';
+import Banner from '@/assets/image/banner.jpg';
 
 const Bold = styled.div`
   color: red;
