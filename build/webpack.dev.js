@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
+const apiMocker = require('mocker-api');
 
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
@@ -13,6 +14,9 @@ module.exports = merge(common, {
     port: 8000,
     hot: true,
     clientLogLevel: 'none' /** 关闭控制台赘余console */,
+    before(app) {
+      apiMocker(app, path.resolve(__dirname, '../mock/index.js'), {});
+    },
     proxy: {
       /** 设置代理 */
       '/douban': {

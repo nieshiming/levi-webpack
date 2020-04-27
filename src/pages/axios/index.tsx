@@ -10,8 +10,8 @@ const Main: FC<Props> = (props: Props) => {
   const [list, setList] = useState<any[]>([]);
 
   const handleGetReq = () => {
-    API.get('/douban/v2/movie/us_box')
-      .then(res => setList(res['subjects']))
+    API.post('/mock/login/account')
+      .then(res => setList(res.data))
       .catch(err => message.warn(`${err.message}`));
   };
 
@@ -26,7 +26,7 @@ const Main: FC<Props> = (props: Props) => {
         dataSource={list}
         renderItem={item => (
           <List.Item>
-            <Typography.Text mark>[ITEM]</Typography.Text> {item.box}
+            <Typography.Text mark>[ITEM]</Typography.Text> {item.username}
           </List.Item>
         )}
       />

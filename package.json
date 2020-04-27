@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server  --config ./build/webpack.dev.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open  --config ./build/webpack.dev.js",
     "build:dev": "cross-env NODE_ENV=development webpack --config ./build/webpack.dev.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.js",
     "lint": "eslint src --fix --ext .ts,.tsx",
@@ -77,6 +77,8 @@
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "dayjs": "^1.8.24",
+    "mocker-api": "^2.0.4",
+    "mockjs": "^1.1.0",
     "qs": "^6.9.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

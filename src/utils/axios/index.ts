@@ -5,7 +5,6 @@ const instance = axios.create({
   headers: {
     Pragma: 'no-cache',
     Accept: 'application/json',
-    'Content-Type': 'application/json',
     'Cache-Control': 'no-cache, no-store, must-revalidate'
   }
 });
@@ -18,7 +17,8 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   response => {
     const { status, data } = response;
-    if (status === 2001) {
+
+    if (status === 200) {
       return data;
     }
 
