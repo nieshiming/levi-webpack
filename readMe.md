@@ -143,6 +143,41 @@ webpack 配置别名 webpack 别名保持编译可索引
 >   - prettier/@typescript-eslint：使得@typescript-eslint 中的样式规范失效，遵循 prettier 中的样式规范
 >   - plugin:prettier/recommended：使用 prettier 中的样式规范，且如果使得 ESLint 会检测 prettier 的格式问题，同样将格式问题以 error 的形式抛出
 
+#### :boat: mock
+
+```javascript
+    // webpack.dev.js
+    devServer: {
+        before(app) {
+            apiMocker(app, path.resolve(__dirname, '../mock/index.js'), {});
+        },
+    },
+
+
+    // index.js
+    const Mock = require('mockjs');
+    module.exports = {
+        'POST /mock/login/account': (req, res) => {
+            // const { password, username } = req.body; === 这里在控制台看到req信息，便于view请求参数
+            // 请求参数： 在终端查看，不是在网页console里面
+            return res.json(
+                Mock.mock({
+                    'data|10': [
+                    {
+                        'id|+1': 1,
+                        username: '@cname',
+                        'sex|+1': 11
+                    }
+                    ]
+                })
+            );
+        }
+    };
+```
+
+yarn add mocker-api => 注入在 webpack-dev-server before 对象
+yarn add mockjs => 自定义 maock 数据，方便快捷
+
 #### :fire: 优化
 
 - [happypack](https://www.npmjs.com/package/happypack) 启动多线程编译打包
