@@ -9,6 +9,7 @@ const chalk = require('chalk');
 const webpack = require('webpack');
 
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
+const source = path.resolve(__dirname, '..', 'src');
 
 module.exports = {
   entry: {
@@ -57,14 +58,10 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader'
-      },
-      {
         test: /\.(js|ts)x?$/,
         exclude: '/node_modules/',
-        loader: ['happypack/loader?id=js']
+        loader: ['happypack/loader?id=js'],
+        include: [source]
       }
     ]
   },
@@ -98,6 +95,9 @@ module.exports = {
           options: {
             cacheDirectory: true
           }
+        },
+        {
+          loader: 'eslint-loader'
         }
       ]
     })

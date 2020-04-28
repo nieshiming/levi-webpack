@@ -3,17 +3,24 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
 const apiMocker = require('mocker-api');
+const NotifierPlugin = require('friendly-errors-webpack-plugin');
+const notifier = require('node-notifier');
 
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   devServer: {
     contentBase: './dist',
     port: 8000,
     hot: true,
-    clientLogLevel: 'none' /** 关闭控制台赘余console */,
+    quiet: true,
+    overlay: {
+      warnings: true,
+      errors: true
+    },
+    clientLogLevel: 'warning' /** 关闭控制台赘余console */,
     before(app) {
       apiMocker(app, path.resolve(__dirname, '../mock/index.js'), {});
     },
@@ -39,6 +46,24 @@ module.exports = merge(common, {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+      }
+    }),
+    new NotifierPlugin({
+      clearConsole: true,
+      compilationSuccessInfo: {
+        messages: ['application is running here http://localhost:8000'],
+        notes: ['Some additionnal notes to be displayed unpon successful compilation']
+      },
+      onErrors: (severity, errors) => {
+        if (severity !== 'error') {
+          return;
+        }
+        const error = errors[0];
+        notifier.notify({
+          title: 'Webpack error',
+          message: severity + ': ' + error.name,
+          subtitle: error.file || ''
+        });
       }
     })
   ]
