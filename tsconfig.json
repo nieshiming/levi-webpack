@@ -11,8 +11,7 @@
     "jsx": "react",
     "allowJs": true,
     "paths": {
-      "@/*": ["src/*"],
-      "enums/*": ["src/enum/*"]
+      "@/*": ["src/*"]
     }
   },
   "include": ["./src"]

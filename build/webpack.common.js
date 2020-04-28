@@ -16,14 +16,25 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].[hash:6].bundle.js',
+    publicPath: '/'
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '../src'),
-      enums: path.resolve(__dirname, '../src/enum')
+      '@': path.resolve(__dirname, '../src')
     },
     extensions: ['.js', '.ts', '.jsx', '.tsx']
+  },
+  stats: {
+    assets: true,
+    modules: false,
+    chunks: false,
+    children: false,
+    chunkModules: false,
+    hash: true,
+    colors: true,
+    publicPath: true,
+    errors: true
   },
   module: {
     rules: [
