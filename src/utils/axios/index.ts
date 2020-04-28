@@ -23,7 +23,8 @@ const instance = axios.create({
     Pragma: 'no-cache',
     Accept: 'application/json',
     'Cache-Control': 'no-cache, no-store, must-revalidate'
-  }
+  },
+  baseURL: '/'
 });
 
 /** 请求拦截器 */
