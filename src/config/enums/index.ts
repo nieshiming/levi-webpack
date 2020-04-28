@@ -1,4 +1,4 @@
-export enum shop {
+export enum Shop {
   apple,
   huawei
 }

@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
-import { Button, List, Typography, message } from 'antd';
-import API from '@/utils/axios';
+import { Button, List, Typography } from 'antd';
+import { getResultList } from '@/apis';
 
 type Props = {
   name: string;
@@ -9,10 +9,14 @@ type Props = {
 const Main: FC<Props> = (props: Props) => {
   const [list, setList] = useState<any[]>([]);
 
-  const handleGetReq = () => {
-    API.post('/mock/login/account')
-      .then(res => setList(res.data))
-      .catch(err => message.warn(`${err.message}`));
+  const handleGetReq = async () => {
+    try {
+      const data = await getResultList('levis')({}, { responseType: 'json', timeout: 1000 });
+      setList(data);
+    } catch (err) {
+      console.log(err);
+      setList([]);
+    }
   };
 
   return (
@@ -26,7 +30,7 @@ const Main: FC<Props> = (props: Props) => {
         dataSource={list}
         renderItem={item => (
           <List.Item>
-            <Typography.Text mark>[ITEM]</Typography.Text> {item.username}
+            <Typography.Text mark>[name]</Typography.Text> {item.username}
           </List.Item>
         )}
       />
