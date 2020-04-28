@@ -81,8 +81,8 @@ const ApiGenerator: ApiGenerator = (config: string) => {
   }
 
   /**
-   * @params {payload} 接受参数
-   * @params {overrideConfig} request剩余参数
+   * @param {payload} 接受参数
+   * @param {overrideConfig} request剩余参数
    *  */
   return (payload, overrideConfig) => {
     return request({
