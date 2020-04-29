@@ -19,7 +19,6 @@
       "@babel/plugin-proposal-class-properties",
       { "loose": true }
     ] /** 转换class  定义属性&&箭头函数*/,
-    "@babel/plugin-syntax-dynamic-import",
     [
       "import",
       {

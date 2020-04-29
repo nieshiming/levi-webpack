@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 import { Button, List, Typography } from 'antd';
-import { getResultList } from '@/apis';
 
 type Props = {
   name: string;
@@ -10,13 +9,9 @@ const Main: FC<Props> = (props: Props) => {
   const [list, setList] = useState<any[]>([]);
 
   const handleGetReq = async () => {
-    try {
-      const data = await getResultList('levis')({}, { responseType: 'json', timeout: 1000 });
-      setList(data);
-    } catch (err) {
-      console.log(err);
-      setList([]);
-    }
+    console.log(1);
+    setList([]);
+    import('@/apis').then(res => console.log(res));
   };
 
   return (
