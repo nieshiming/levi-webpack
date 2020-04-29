@@ -69,6 +69,7 @@
     "html-webpack-plugin": "^4.2.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.1.6",
+    "mocker-api": "^2.0.4",
     "node-notifier": "^7.0.0",
     "prettier": "^2.0.4",
     "progress-bar-webpack-plugin": "^2.1.0",
@@ -80,17 +81,21 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.1.0",
     "@babel/runtime-corejs3": "^7.9.2",
+    "@types/react-router-config": "^5.0.1",
+    "@types/react-router-dom": "^5.1.5",
     "antd": "^4.1.2",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "dayjs": "^1.8.24",
-    "mocker-api": "^2.0.4",
     "mockjs": "^1.1.0",
     "qs": "^6.9.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.20",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.1.2",
     "styled-components": "^5.1.0"
   }
 }
