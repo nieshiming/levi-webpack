@@ -24,7 +24,7 @@
     ],
     "rules": {
       "header-max-length": [
-        0,
+        2,
         "always",
         100
       ]
