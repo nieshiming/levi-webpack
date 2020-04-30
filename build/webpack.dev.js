@@ -20,6 +20,7 @@ module.exports = merge(common, {
       warnings: true,
       errors: true
     },
+    historyApiFallback: true,
     clientLogLevel: 'warning' /** 关闭控制台赘余console */,
     before(app) {
       apiMocker(app, path.resolve(__dirname, '../mock/index.js'), {});

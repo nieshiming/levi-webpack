@@ -25,20 +25,6 @@ class Slider extends React.Component<Props, State> {
     });
   }
 
-  /** 监听路由变化 重置targetKey */
-  componentDidUpdate(nextProps: Props) {
-    const {
-      location: { pathname: prevPathName }
-    } = this.props;
-    const {
-      location: { pathname: nextPathName }
-    } = nextProps;
-
-    if (prevPathName !== nextPathName) {
-      this.setState({ targetKey: nextPathName });
-    }
-  }
-
   goHome = () => {
     this.setState({ targetKey: '/dashboard' }, () => {
       const { history } = this.props;
@@ -100,7 +86,7 @@ class Slider extends React.Component<Props, State> {
                 key={`${item.path}`}
                 title={
                   <div>
-                    <item.icon />
+                    {/* <item.icon /> */}
                     <span>{item.name}</span>
                   </div>
                 }
@@ -121,7 +107,7 @@ class Slider extends React.Component<Props, State> {
               </SubMenu>
             ) : (
               <Menu.Item key={`${item.path}`}>
-                <item.icon />
+                {/* <item.icon /> */}
                 <span>{item.name}</span>
               </Menu.Item>
             );

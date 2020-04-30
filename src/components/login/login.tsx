@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FormComponentProps } from 'antd/lib/form/Form';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
@@ -8,73 +7,52 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 const initState = {};
 
 type State = Readonly<typeof initState>;
-interface Props extends FormComponentProps, RouteComponentProps {}
+interface Props extends RouteComponentProps {}
 
 class LoginForm extends React.Component<Props, State> {
   readonly state = initState;
 
-  handleSubmit = (e: any) => {
-    console.log(e);
-    const {
-      form: { validateFields }
-    } = this.props;
-    validateFields(async (err: any, values: any) => {
-      console.log(err, values);
-      if (!err) {
-        const { history } = this.props;
-        history.push('/dashboard');
-      }
-    });
+  handleSubmit = (values: any) => {
+    console.log(values);
+
+    const { history } = this.props;
+    history.push('/dashboard');
   };
 
   render() {
-    const { getFieldDecorator } = this.props.form;
-
     return (
       <Wrapper>
         <FormWrapper>
           <p className="title">levis后台管理系统</p>
-          <Form className="login-form">
-            <Form.Item>
-              {getFieldDecorator('username', {
-                rules: [{ required: true, message: '请输入账号' }],
-                initialValue: 'levi'
-              })(
-                <Input
-                  prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  placeholder="levi"
-                />
-              )}
+          <Form
+            className="login-form"
+            initialValues={{ username: 'levis', password: '1234556', checked: true }}
+            onFinish={this.handleSubmit}
+          >
+            <Form.Item name="username" rules={[{ required: true, message: '请输入账号' }]}>
+              <Input
+                prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder="levi"
+              />
+            </Form.Item>
+            <Form.Item name="password" rules={[{ required: true, message: '请输入密码' }]}>
+              <Input
+                prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
+                type="password"
+                placeholder="levi123"
+              />
             </Form.Item>
             <Form.Item>
-              {getFieldDecorator('password', {
-                rules: [{ required: true, message: '请输入密码' }],
-                initialValue: 'levi123'
-              })(
-                <Input
-                  prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
-                  type="password"
-                  placeholder="levi123"
-                />
-              )}
-            </Form.Item>
-            <Form.Item>
-              {getFieldDecorator('remember', {
-                valuePropName: 'checked',
-                initialValue: true
-              })(<Checkbox>记住我</Checkbox>)}
+              <Form.Item name="checked" valuePropName="checked" noStyle>
+                <Checkbox>Remember me</Checkbox>
+              </Form.Item>
+
               <a className="login-form-forgot" href="">
                 忘记密码
               </a>
-              <Button
-                type="primary"
-                htmlType="submit"
-                className="login-form-button"
-                onClick={this.handleSubmit}
-              >
+              <Button type="primary" htmlType="submit" className="login-form-button">
                 登录
               </Button>
-              或者 <a href="">立即注册</a>
             </Form.Item>
           </Form>
         </FormWrapper>
@@ -131,4 +109,4 @@ const FormWrapper = styled.div`
   }
 `;
 
-export default Form.create({ name: 'normal_login' })(withRouter(LoginForm));
+export default withRouter(LoginForm);
