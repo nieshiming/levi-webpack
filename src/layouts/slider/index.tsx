@@ -4,12 +4,31 @@ import styled from 'styled-components';
 import { Layout, Menu } from 'antd';
 import { ClickParam } from 'antd/lib/menu';
 import menu from '@/config/menus';
+import {
+  BarChartOutlined,
+  CrownOutlined,
+  AimOutlined,
+  GitlabOutlined,
+  DeploymentUnitOutlined,
+  DribbbleOutlined
+} from '@ant-design/icons';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 const initState = {
   collapsed: false,
   targetKey: ''
+};
+
+const Icons: {
+  [key: string]: any;
+} = {
+  barChart: <BarChartOutlined />,
+  crown: <CrownOutlined />,
+  typescript: <AimOutlined />,
+  gitlab: <GitlabOutlined />,
+  allorithm: <DeploymentUnitOutlined />,
+  dribbble: <DribbbleOutlined />
 };
 
 interface Props extends RouteComponentProps {}
@@ -25,6 +44,7 @@ class Slider extends React.Component<Props, State> {
     });
   }
 
+  /** 首页 */
   goHome = () => {
     this.setState({ targetKey: '/dashboard' }, () => {
       const { history } = this.props;
@@ -86,7 +106,7 @@ class Slider extends React.Component<Props, State> {
                 key={`${item.path}`}
                 title={
                   <div>
-                    {/* <item.icon /> */}
+                    {Icons[item.icon]}
                     <span>{item.name}</span>
                   </div>
                 }
@@ -107,7 +127,7 @@ class Slider extends React.Component<Props, State> {
               </SubMenu>
             ) : (
               <Menu.Item key={`${item.path}`}>
-                {/* <item.icon /> */}
+                {Icons[item.icon]}
                 <span>{item.name}</span>
               </Menu.Item>
             );

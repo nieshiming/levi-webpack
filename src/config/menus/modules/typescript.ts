@@ -1,6 +1,6 @@
 export const typescriptMenu = {
   name: 'typescript',
-  icon: 'crown',
+  icon: 'typescript',
   path: '/typescript',
   children: [
     {

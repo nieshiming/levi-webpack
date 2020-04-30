@@ -1,6 +1,6 @@
 export const algorithmMenu = {
   name: '算法',
-  icon: 'DeploymentUnitOutlined',
+  icon: 'allorithm',
   path: '/algorithm',
   children: [
     {
