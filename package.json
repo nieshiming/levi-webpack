@@ -8,6 +8,7 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server  --config ./build/webpack.dev.js",
     "build:dev": "cross-env NODE_ENV=development webpack --config ./build/webpack.dev.js",
     "build:prod": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.js",
+    "build:dll": "webpack --config ./build/webpack.dll.config.js",
     "lint": "eslint src --fix --ext .ts,.tsx",
     "beauty": "prettier --write",
     "clean": "rm -rf ./node_modules/.cache"
@@ -72,13 +73,13 @@
     "mocker-api": "^2.0.4",
     "node-notifier": "^7.0.0",
     "prettier": "^2.0.4",
-    "progress-bar-webpack-plugin": "^2.1.0",
     "style-loader": "^1.1.4",
     "url-loader": "^4.1.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "webpackbar": "^4.0.0"
   },
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
