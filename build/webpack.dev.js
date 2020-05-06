@@ -5,6 +5,7 @@ const common = require('./webpack.common');
 const apiMocker = require('mocker-api');
 const NotifierPlugin = require('friendly-errors-webpack-plugin');
 const notifier = require('node-notifier');
+const chalk = require('chalk');
 
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
@@ -52,8 +53,8 @@ module.exports = merge(common, {
     new NotifierPlugin({
       clearConsole: true,
       compilationSuccessInfo: {
-        messages: ['application is running here http://localhost:8000'],
-        notes: ['Some additionnal notes to be displayed unpon successful compilation']
+        messages: [`application is running here ${chalk.blue('http://localhost:8000')}`],
+        notes: [`NODE_ENV: ${process.env.NODE_ENV}`]
       },
       onErrors: (severity, errors) => {
         if (severity !== 'error') {
