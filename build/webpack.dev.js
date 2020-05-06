@@ -11,7 +11,7 @@ const NotifierPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'source-map',
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: './dist',
     port: 8000,

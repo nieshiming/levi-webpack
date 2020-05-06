@@ -88,7 +88,7 @@ module.exports = {
     }),
     new HappyPack({
       id: 'js',
-      threads: happyThreadPool.size,
+      threadPool: happyThreadPool,
       loaders: [
         {
           loader: 'babel-loader',
