@@ -2,6 +2,7 @@ const path = require('path');
 const HappyPack = require('happypack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
+const AutoDllPlugin = require('autodll-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const os = require('os');
@@ -67,11 +68,9 @@ module.exports = {
   plugins: [
     new WebpackBar(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DllReferencePlugin({
-      manifest: require('../static/dll/vendor.manifest.json')
-    }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
+      inject: true,
       title: 'levis',
       template: path.resolve(__dirname, '../src/index.html'),
       hash: true,
@@ -83,6 +82,23 @@ module.exports = {
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
         useShortDoctype: true
+      }
+    }),
+    new AutoDllPlugin({
+      inject: true,
+      filename: '[name].dll.js',
+      path: 'static/dll',
+      context: __dirname,
+      entry: {
+        vendor: [
+          'react',
+          'react-dom',
+          'react-router-config',
+          'react-router-dom',
+          'qs',
+          'styled-components',
+          'axios'
+        ]
       }
     }),
     new HappyPack({
