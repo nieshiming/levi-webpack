@@ -8,6 +8,7 @@ const chalk = require('chalk');
 
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const NotifierPlugin = require('friendly-errors-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
   mode: 'development',
@@ -68,5 +69,6 @@ module.exports = merge(common, {
         });
       }
     })
+    // new BundleAnalyzerPlugin()
   ]
 });
