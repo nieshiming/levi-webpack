@@ -7,7 +7,7 @@ export const commodityManagementRoutes: Array<Route> = [
     path: '/commodity-management/brand',
     component: lazy(() =>
       import(
-        /* webpackChunkName: 'commodity-management/brand' */ '@/pages/commodity-management/brand'
+        /* webpackChunkName: 'commodity-management-brand' */ '@/pages/commodity-management/brand'
       )
     )
   },
@@ -16,7 +16,7 @@ export const commodityManagementRoutes: Array<Route> = [
     path: '/commodity-management/category',
     component: lazy(() =>
       import(
-        /* webpackChunkName: 'commodity-management/category' */ '@/pages/commodity-management/category'
+        /* webpackChunkName: 'commodity-management-category' */ '@/pages/commodity-management/category'
       )
     )
   },
@@ -25,7 +25,7 @@ export const commodityManagementRoutes: Array<Route> = [
     path: '/commodity-management/model',
     component: lazy(() =>
       import(
-        /* webpackChunkName: 'commodity-management/model' */ '@/pages/commodity-management/model'
+        /* webpackChunkName: 'commodity-management-model' */ '@/pages/commodity-management/model'
       )
     )
   }

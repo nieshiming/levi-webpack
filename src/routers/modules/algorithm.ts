@@ -6,7 +6,7 @@ export const algorithmRoutes: Array<Route> = [
     name: 'array',
     path: '/algorithm/array/base',
     component: lazy(() =>
-      import(/* webpackChunkName: 'algorithm/array' */ '@/pages/algorithm/basic/array')
+      import(/* webpackChunkName: 'algorithm-array' */ '@/pages/algorithm/basic/array')
     )
   }
 ];
