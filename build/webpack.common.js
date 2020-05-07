@@ -1,12 +1,13 @@
 const path = require('path');
+const os = require('os');
+const webpack = require('webpack');
 const HappyPack = require('happypack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const AutoDllPlugin = require('autodll-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const os = require('os');
-const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 const source = path.resolve(__dirname, '..', 'src');
@@ -43,6 +44,12 @@ module.exports = {
         test: /\.css$/,
         use: [
           { loader: 'style-loader' },
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: true
+            }
+          },
           {
             loader: 'css-loader',
             options: {
@@ -115,6 +122,13 @@ module.exports = {
           loader: 'eslint-loader'
         }
       ]
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+      ignoreOrder: false,
+      reloadAll: true,
+      hmr: process.env.NODE_ENV === 'development'
     })
   ]
 };
