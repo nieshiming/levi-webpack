@@ -60,8 +60,15 @@ module.exports = {
         include: /node_modules/
       },
       {
-        test: /.(png|jpg|gif)$/,
-        loader: 'url-loader',
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8100
+            }
+          }
+        ],
         exclude: /node_modules/
       },
       {
