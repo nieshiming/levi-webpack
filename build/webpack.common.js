@@ -102,7 +102,7 @@ module.exports = {
       inject: true,
       filename: '[name].dll.js',
       path: 'static/dll',
-      context: __dirname,
+      context: path.resolve(__dirname, '../dist'),
       entry: {
         vendor: [
           'react',
