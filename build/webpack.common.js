@@ -27,17 +27,6 @@ module.exports = {
     },
     extensions: ['.js', '.ts', '.jsx', '.tsx']
   },
-  stats: {
-    assets: true,
-    modules: false,
-    chunks: false,
-    children: false,
-    chunkModules: false,
-    hash: true,
-    colors: true,
-    publicPath: true,
-    errors: true
-  },
   module: {
     rules: [
       {
