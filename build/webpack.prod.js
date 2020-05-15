@@ -1,8 +1,8 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
