@@ -32,7 +32,7 @@ class Baisc extends React.Component<{}, State> {
             </Button>
           </Col>
           <Col>
-            <Button type="danger" onClick={this.getMovieList}>
+            <Button type="ghost" onClick={this.getMovieList}>
               北美票房榜
             </Button>
           </Col>

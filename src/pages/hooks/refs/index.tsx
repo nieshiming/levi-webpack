@@ -66,7 +66,7 @@ const Baisc: FC = () => {
           <Btn2 ref={ref}>levis classs</Btn2>
         </Col>
         <Col>
-          <Button onClick={getRefs} type="danger">
+          <Button onClick={getRefs} type="ghost">
             get ref
           </Button>
         </Col>

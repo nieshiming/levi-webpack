@@ -25,7 +25,7 @@ const Parent: FC = () => {
       <Basic />
       <div>
         <Button
-          type="danger"
+          type="ghost"
           onClick={() => setNieInfo(Object.assign({}, nieInfo, { age: nieInfo.age + 1 }))}
         >
           update

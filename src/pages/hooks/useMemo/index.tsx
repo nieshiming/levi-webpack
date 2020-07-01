@@ -19,7 +19,7 @@ const Basic: FC = () => {
       {Content}
       {showMsg()}
       <h4>{num}</h4>
-      <Button type="danger" onClick={() => setNum(num + 1)}>
+      <Button type="ghost" onClick={() => setNum(num + 1)}>
         add
       </Button>
     </Card>

@@ -12,7 +12,7 @@ const Basic: FC = () => {
 
   return (
     <Card>
-      <Button type="danger" onClick={changeTitle}>
+      <Button type="ghost" onClick={changeTitle}>
         更改title
       </Button>
 

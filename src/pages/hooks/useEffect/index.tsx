@@ -45,7 +45,7 @@ const Basic: FC<IProps> = (props: IProps) => {
       <h4>num:{num}</h4>
       <h4>nie:{nie}</h4>
       <h4>{JSON.stringify(info)}</h4>
-      <Button type="danger" onClick={() => setNum(num + 1)}>
+      <Button type="ghost" onClick={() => setNum(num + 1)}>
         点击
       </Button>
 
@@ -70,7 +70,7 @@ const Parent: FC = () => {
     <div>
       <Basic age={age} />
       <div>
-        <Button type="danger" onClick={() => setAge(age + 1)}>
+        <Button type="ghost" onClick={() => setAge(age + 1)}>
           更新props
         </Button>
       </div>

@@ -24,7 +24,7 @@ const Basic: FC = () => {
       <Button type="primary" onClick={showMsg}>
         show msg
       </Button>
-      <Button type="danger" onClick={() => setNum(num + 1)}>
+      <Button type="ghost" onClick={() => setNum(num + 1)}>
         add
       </Button>
     </Card>

@@ -48,7 +48,7 @@ const Basic: FC = () => {
       <h4 ref={myRef}>111</h4>
       <h4>{JSON.stringify(users)}</h4>
       <Child ref={childRef} />
-      <Button onClick={showRef} type="danger">
+      <Button onClick={showRef} type="ghost">
         打印ref
       </Button>
     </Card>

@@ -21,7 +21,7 @@ const Basic: FC = () => {
       <Button type="primary" onClick={() => setNum(num + 1)}>
         点击 = 基本类型
       </Button>
-      <Button type="danger" onClick={() => arrFn(4)}>
+      <Button type="ghost" onClick={() => arrFn(4)}>
         点击 = 引用类型
       </Button>
     </Card>

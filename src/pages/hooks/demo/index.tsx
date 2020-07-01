@@ -52,7 +52,7 @@ const Parent: FC = () => {
           child: {age}
           {}
         </h4>
-        <Button type="danger" onClick={() => setAge(age + 1)}>
+        <Button type="ghost" onClick={() => setAge(age + 1)}>
           add parent
         </Button>
       </div>
