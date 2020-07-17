@@ -1,7 +1,10 @@
 import React, { FC } from 'react';
 import { Card } from 'antd';
+import { useTitle } from 'ahooks';
 
 const Basic: FC = () => {
+  useTitle('change Title');
+
   return (
     <Card style={{ width: '100%' }}>
       <h3>早安，levis，祝你开心每一天！</h3>

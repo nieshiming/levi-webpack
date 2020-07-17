@@ -25,7 +25,16 @@
         "libraryName": "antd",
         "libraryDirectory": "es",
         "style": "css"
-      }
+      },
+      "antd"
+    ],
+    [
+      "import",
+      {
+        "libraryName": "ahooks",
+        "camel2DashComponentName": false
+      },
+      "ahooks"
     ]
   ]
 }
