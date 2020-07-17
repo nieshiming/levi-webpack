@@ -91,6 +91,7 @@
     "@babel/runtime-corejs3": "^7.9.2",
     "@types/react-router-config": "^5.0.1",
     "@types/react-router-dom": "^5.1.5",
+    "ahooks": "^2.2.0",
     "antd": "^4.1.2",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
