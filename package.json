@@ -90,6 +90,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
     "@babel/runtime-corejs3": "^7.9.2",
+    "@types/lodash": "^4.14.158",
     "@types/react-router-config": "^5.0.1",
     "@types/react-router-dom": "^5.1.5",
     "ahooks": "^2.2.0",
@@ -97,6 +98,7 @@
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "dayjs": "^1.8.24",
+    "lodash": "^4.17.19",
     "mockjs": "^1.1.0",
     "qs": "^6.9.3",
     "react": "^16.13.1",
