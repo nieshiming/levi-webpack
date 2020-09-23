@@ -3,7 +3,6 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common');
 
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
   mode: 'production',
@@ -28,7 +27,6 @@ module.exports = merge(common, {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
     }),
-    // new BundleAnalyzerPlugin(),
     new OptimizeCSSAssetsPlugin({
       assetNameRegExp: /\.css\.*(?!.*map)/g, //注意不要写成 /\.css$/g
       cssProcessor: require('cssnano'),

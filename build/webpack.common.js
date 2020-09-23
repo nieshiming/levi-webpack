@@ -2,24 +2,24 @@ const path = require('path');
 const os = require('os');
 const webpack = require('webpack');
 const HappyPack = require('happypack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const AutoDllPlugin = require('autodll-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
-const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 const source = path.resolve(__dirname, '..', 'src');
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 
 module.exports = {
   entry: {
     app: './src/index.tsx'
   },
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].[hash:6].bundle.js',
-    publicPath: '/'
+    filename: 'js/[name].[hash:6].bundle.js',
+    chunkFilename: 'js/[name].[hash:6].chunk.js'
   },
   resolve: {
     alias: {
@@ -32,7 +32,6 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          { loader: 'style-loader' },
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
@@ -120,8 +119,8 @@ module.exports = {
       ]
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[id].css',
       ignoreOrder: false,
       reloadAll: true,
       hmr: process.env.NODE_ENV === 'development'
