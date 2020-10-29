@@ -34,6 +34,12 @@ module.exports = merge(common, {
         changeOrigin: true,
         secure: false,
         pathRewrite: { '^/douban': '' }
+      },
+      '/api': {
+        target: 'http://127.0.0.1:8888',
+        pathRewrite: {
+          '^/api': ''
+        }
       }
     }
   },

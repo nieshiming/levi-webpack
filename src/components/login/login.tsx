@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { login } from '@/apis';
+import { message } from 'antd';
 
 const initState = {};
 
@@ -12,11 +14,20 @@ interface Props extends RouteComponentProps {}
 class LoginForm extends React.Component<Props, State> {
   readonly state = initState;
 
-  handleSubmit = (values: any) => {
-    console.log(values);
+  handleSubmit = async (values: any) => {
+    let res;
+    try {
+      res = await login(values);
+      console.log(res);
+    } catch (err) {
+      console.log(err);
+    }
 
-    const { history } = this.props;
-    history.push('/dashboard');
+    if (res) {
+      message.success('登录成功');
+      const { history } = this.props;
+      history.push('/dashboard');
+    }
   };
 
   render() {

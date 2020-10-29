@@ -14,3 +14,5 @@ export const mockPost = API('POST /levis/post');
 export const mockPut = API('PUT /levis/put');
 
 export const mockDelete = API('DELETE /levis/delete');
+
+export const login = API('GET /api/getmethods');
