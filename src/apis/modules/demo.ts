@@ -5,14 +5,14 @@ export const getResultList = (name?: string) => API(`POST /mock/login/account?na
 /** 豆瓣 北美票房榜 */
 export const getMovieList = API('GET /douban/v2/movie/us_box');
 
-export const getProxyData = API('GET /levis/getlunbo');
+export const getProxyData = API('GET /mock/getlunbo');
 
-export const mockGet = API('GET /levis/get');
+export const mockGet = API('GET /mock/get');
 
-export const mockPost = API('POST /levis/post');
+export const mockPost = API('POST /mock/post');
 
-export const mockPut = API('PUT /levis/put');
+export const mockPut = API('PUT /mock/put');
 
-export const mockDelete = API('DELETE /levis/delete');
+export const mockDelete = API('DELETE /mock/delete');
 
 export const login = API('GET /api/getmethods');

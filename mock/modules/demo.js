@@ -17,7 +17,7 @@ module.exports = {
   },
   'GET /mock/get': (req, res) => {
     return res.json(
-      mock({
+      Mock.mock({
         code: 200,
         'data|10': [
           {
@@ -32,7 +32,7 @@ module.exports = {
   },
   'POST /mock/post': (req, res) => {
     return res.json(
-      mock({
+      Mock.mock({
         code: 200,
         data: 'post data'
       })
@@ -40,7 +40,7 @@ module.exports = {
   },
   'PUT /mock/put': (req, res) => {
     return res.json(
-      mock({
+      Mock.mock({
         code: 200,
         data: 'put data'
       })
@@ -48,7 +48,7 @@ module.exports = {
   },
   'DELETE /mock/delete': (req, res) => {
     return res.json(
-      mock({
+      Mock.mock({
         code: 200,
         data: 'delete data'
       })
