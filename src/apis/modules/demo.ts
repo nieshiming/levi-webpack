@@ -7,9 +7,9 @@ export const getMovieList = API('GET /douban/v2/movie/us_box');
 
 export const getProxyData = API('GET /mock/getlunbo');
 
-export const mockGet = API('GET /mock/get');
+export const mockGet = API('GET /api/testget?name=1');
 
-export const mockPost = API('POST /mock/post');
+export const mockPost = API('POST /api/testpost');
 
 export const mockPut = API('PUT /mock/put');
 

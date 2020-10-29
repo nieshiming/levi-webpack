@@ -17,7 +17,7 @@ class Baisc extends React.Component<{}, State> {
 
   apiPost = async () => {
     try {
-      const { data } = await mockPost();
+      const { data } = await mockPost({ name: 'levi', age: 20 });
       console.log(data);
     } catch (e) {}
   };
