@@ -1,5 +1,42 @@
-import React, { FC, useState, useContext, createContext } from 'react';
+import React, { FC, useState, useContext, createContext, useEffect } from 'react';
 import { Card, Button } from 'antd';
+
+let defaultContext = { name: 'nsm' };
+const BasicContext = React.createContext({ name: 'initName' });
+const App = () => {
+  const [context, setContext] = useState(defaultContext);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setContext(prev => ({ ...prev, name: 'xxx' }));
+    }, 2000);
+  }, []);
+
+  /** 订阅组件变化 */
+  return (
+    <BasicContext.Provider value={context}>
+      <Page left={<div>left child</div>} right={<div>right child</div>}>
+        <BasicContext.Consumer>{value => <ChildPage context={value} />}</BasicContext.Consumer>
+      </Page>
+    </BasicContext.Provider>
+  );
+};
+
+const Page: FC = props => {
+  console.log('pageinit');
+  return (
+    <>
+      <div>{props.children}</div>
+      <div>{props.left}</div>
+      <div>{props.right}</div>
+    </>
+  );
+};
+
+const ChildPage = props => {
+  console.log(props.context, 'render');
+  return <div>我是context{props.context.name}</div>;
+};
 
 const nieObj = {
   name: 'levi',
@@ -23,6 +60,7 @@ const Parent: FC = () => {
   return (
     <nieContext.Provider value={nieInfo}>
       <Basic />
+      <App />
       <div>
         <Button
           type="ghost"
