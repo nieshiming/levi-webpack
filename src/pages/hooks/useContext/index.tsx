@@ -114,4 +114,6 @@ export default Parent;
  * @description Context 设计目的是为了共享那些对于一个组件树而言是“全局”的数据
  *
  * @poinit  React.createContext => https://zh-hans.reactjs.org/docs/context.html
+ *
+ * @description 主要监听Provider value发生变化子组件就会重新订阅，重新渲染
  * */
