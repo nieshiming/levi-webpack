@@ -2,7 +2,9 @@ import React, { FC, useState, useContext, createContext, useEffect } from 'react
 import { Card, Button } from 'antd';
 
 let defaultContext = { name: 'nsm' };
-const BasicContext = React.createContext({ name: 'initName' });
+const BasicContext = React.createContext({ name: 'initName', fn: console.log });
+const SecContext = React.createContext(20);
+
 const App = () => {
   const [context, setContext] = useState(defaultContext);
 
@@ -12,12 +14,24 @@ const App = () => {
     }, 2000);
   }, []);
 
-  /** 订阅组件变化 */
+  /**
+   * @title 订阅组件变化
+   * @description 可以提供多个Provider 供Consumer消费
+   */
   return (
     <BasicContext.Provider value={context}>
-      <Page left={<div>left child</div>} right={<div>right child</div>}>
-        <BasicContext.Consumer>{value => <ChildPage context={value} />}</BasicContext.Consumer>
-      </Page>
+      <SecContext.Provider value={21}>
+        <Page left={<div>left child</div>} right={<div>right child</div>}>
+          <BasicContext.Consumer>
+            {value => (
+              <SecContext.Consumer>
+                {/* 消费多个Consumer */}
+                {age => <ChildPage context={value} age={age} />}
+              </SecContext.Consumer>
+            )}
+          </BasicContext.Consumer>
+        </Page>
+      </SecContext.Provider>
     </BasicContext.Provider>
   );
 };
@@ -35,7 +49,11 @@ const Page: FC = props => {
 
 const ChildPage = props => {
   console.log(props.context, 'render');
-  return <div>我是context{props.context.name}</div>;
+  return (
+    <div>
+      我是context{props.context.name}/{props.age}
+    </div>
+  );
 };
 
 const nieObj = {
