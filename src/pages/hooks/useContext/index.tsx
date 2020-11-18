@@ -60,10 +60,10 @@ const nieObj = {
   name: 'levi',
   age: 20
 };
-const nieContext = createContext(nieObj);
+const NieContext = createContext(nieObj);
 
 const Basic: FC = () => {
-  const levi = useContext(nieContext);
+  const levi = useContext(NieContext);
   return (
     <Card>
       <h4>name: {levi.name}</h4>
@@ -76,7 +76,7 @@ const Parent: FC = () => {
   const [nieInfo, setNieInfo] = useState(nieObj);
 
   return (
-    <nieContext.Provider value={nieInfo}>
+    <NieContext.Provider value={nieInfo}>
       <Basic />
       <App />
       <div>
@@ -87,7 +87,7 @@ const Parent: FC = () => {
           update
         </Button>
       </div>
-    </nieContext.Provider>
+    </NieContext.Provider>
   );
 };
 
