@@ -106,6 +106,7 @@
     "react-hot-loader": "^4.12.20",
     "react-router-config": "^5.1.1",
     "react-router-dom": "^5.1.2",
+    "recoil": "^0.1.2",
     "styled-components": "^5.1.0"
   }
 }

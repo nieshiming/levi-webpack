@@ -4,6 +4,10 @@ export const hooksMenu = {
   path: '/hooks',
   children: [
     {
+      name: 'recoil',
+      path: '/hooks/recoil'
+    },
+    {
       name: 'ref',
       path: '/hooks/ref'
     },

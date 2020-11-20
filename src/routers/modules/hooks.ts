@@ -3,6 +3,11 @@ import { Route } from '../interface';
 
 export const hooksRoutes: Array<Route> = [
   {
+    name: 'recoil',
+    path: '/hooks/recoil',
+    component: lazy(() => import(/* webpackChunkName: 'hooks-recoil' */ '@/pages/hooks/recoil'))
+  },
+  {
     name: 'ref',
     path: '/hooks/ref',
     component: lazy(() => import(/* webpackChunkName: 'hooks-ref' */ '@/pages/hooks/ref'))
