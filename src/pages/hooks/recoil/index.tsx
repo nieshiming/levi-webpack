@@ -35,6 +35,11 @@ const Main: FC = () => {
 
   console.log('main page');
 
+  /** 这里会触发react 错误辩解 */
+  if (info.age > 22) {
+    throw new Error('error happening');
+  }
+
   return (
     <div>
       recoil
