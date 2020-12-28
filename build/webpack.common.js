@@ -108,6 +108,12 @@ module.exports = {
       threadPool: happyThreadPool,
       loaders: [
         {
+          loader: path.resolve(__dirname, './loader/levi.js'),
+          options: {
+            message: 'levis'
+          }
+        },
+        {
           loader: 'babel-loader',
           options: {
             cacheDirectory: true
