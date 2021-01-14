@@ -29,7 +29,7 @@ const { TabPane } = Tabs;
 const basic: FC = () => {
   return (
     <Card>
-      <Tabs defaultActiveKey="2">
+      <Tabs defaultActiveKey="3">
         {tabArr.map((item, index) => (
           <TabPane tab={item.title} key={`${index + 1}`}>
             {item.tab}

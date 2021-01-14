@@ -21,8 +21,8 @@ const Basic: FC = () => {
    * */
   const fn2 = (nums: number[]): number => {
     if (nums.length === 0) return -1;
-    let max = -1,
-      secMax = -1,
+    let max = 0,
+      secMax = 0,
       idx = 0;
     for (let i = 0; i < nums.length; i++) {
       /** 交换值 */
@@ -32,8 +32,8 @@ const Basic: FC = () => {
         idx = i;
       }
 
-      /** 取第二大的值 */
-      if (nums[i] > secMax && nums[i] !== max) secMax = nums[i];
+      /** 取第二大的值 max 和 sec 不能同为一个值 */
+      if (nums[i] > secMax && max > nums[i]) secMax = nums[i];
     }
 
     return max >= 2 * secMax ? idx : -1;
@@ -49,7 +49,7 @@ const Basic: FC = () => {
 export default Basic;
 
 /**
- * @description 至少是其他数组两倍的最大树
+ * @description 至少是其他数组两倍的最大数
  *
   在一个给定的数组nums中，总是存在一个最大元素 。
   查找数组中的最大元素是否至少是数组中每个其他数字的两倍。
