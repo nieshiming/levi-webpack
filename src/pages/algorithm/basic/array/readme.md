@@ -105,7 +105,7 @@
 > 解释: 6是最大的整数, 对于数组中的其他整数,    
 > 6大于数组中其他元素的两倍。6的索引是1, 所以我们返回1.     
 ```javascript
-  const Basic: FC = () => {
+ const Basic: FC = () => {
   /**
    * @description 数组自带方法
    * */
@@ -134,16 +134,15 @@
         secMax = max;
         max = nums[i];
         idx = i;
+      } else if (nums[i] > secMax) {
+        secMax = nums[i];
       }
-
-      /** 取第二大的值 max 和 sec 不能同为一个值 */
-      if (nums[i] > secMax && max > nums[i]) secMax = nums[i];
     }
 
     return max >= 2 * secMax ? idx : -1;
   };
 
-  const result = fn2([0, 0, 2, 3]);
+  const result = fn2([0, 0, 2, 2]);
   console.log(result);
   console.log(fn);
 
