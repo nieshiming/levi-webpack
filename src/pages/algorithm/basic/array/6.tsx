@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 const Basic: FC = () => {
+  // 完成多笔
   const fn = (nums: number[]): number => {
     let count = 0;
 
@@ -13,7 +14,24 @@ const Basic: FC = () => {
     return count;
   };
 
+  // 完成一笔
+  const singleMethod = (nums: number[]) => {
+    let minCount = nums[0];
+    let res = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+      if (nums[i] < minCount) {
+        minCount = nums[i];
+      } else {
+        res = Math.max(res, nums[i] - minCount);
+      }
+    }
+
+    return res;
+  };
+
   console.log(fn([7, 1, 5, 3, 6, 4]));
+  console.log(singleMethod([7, 2, 5, 1, 4, 3, 6, 4]));
 
   return <>买卖股票的最佳时机</>;
 };
