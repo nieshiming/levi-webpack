@@ -30,8 +30,29 @@ const Basic: FC = () => {
     return res;
   };
 
+  // 完成一笔 => 动态规划
+  const dynamic = (nums: number) => {
+    let temp = 0;
+    let result = 0;
+
+    for (let i = 1; i < nums.length; i++) {
+      temp += nums[i] - nums[i - 1];
+
+      if (temp < 0) {
+        temp = 0;
+      }
+
+      if (temp > result) {
+        result = temp;
+      }
+    }
+
+    return result;
+  };
+
   console.log(fn([7, 1, 5, 3, 6, 4]));
   console.log(singleMethod([7, 2, 5, 1, 4, 3, 6, 4]));
+  console.log(dynamic([7, 2, 5, 1, 4, 3, 6, 4]));
 
   return <>买卖股票的最佳时机</>;
 };
