@@ -248,6 +248,12 @@ const Basic: FC = () => {
     for (let i = 1; i < nums.length; i++) {
       temp += nums[i] - nums[i - 1];
 
+      /**
+       * @desc
+       *
+       *  股票真正含义是累计每天盈利+亏损合计
+       *  如果累计到负数，其实没有意义。 temp重置为0，并且保留之前最大数result， 取新的一段 开始计算，
+       * */
       if (temp < 0) {
         temp = 0;
       }
