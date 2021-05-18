@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Row, Col, Button } from 'antd';
+import { Card, Row, Col, Button, message } from 'antd';
 import { mockGet, mockPost, mockPut, mockDelete } from '@/apis';
 
 const initState = {};
@@ -10,7 +10,8 @@ class Baisc extends React.Component<{}, State> {
 
   apiGet = async () => {
     try {
-      const { data } = await mockGet();
+      const data = await mockGet();
+      message.success(`${JSON.stringify(data)}`);
       console.log(data);
     } catch (e) {}
   };
