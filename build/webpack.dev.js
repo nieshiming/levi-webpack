@@ -41,6 +41,12 @@ module.exports = merge(common, {
           '^/api': ''
         }
       }
+      // '/nodejs': {
+      //   target: 'http://10.180.21.95:8081',
+      //   pathRewrite: {
+      //     '^/nodejs': ''
+      //   }
+      // }
     }
   },
   module: {

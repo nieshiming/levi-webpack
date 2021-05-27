@@ -30,11 +30,6 @@ const instance = axios.create({
 /** 请求拦截器 */
 instance.interceptors.request.use(
   config => {
-    /** 启用nodejs 服务 */
-    if (config.url.startsWith('/api')) {
-      config.baseURL = 'http://10.180.21.95:3000/';
-    }
-
     return config;
   },
   err => Promise.reject(err)

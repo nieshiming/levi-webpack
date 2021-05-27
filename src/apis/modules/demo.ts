@@ -16,3 +16,5 @@ export const mockPut = API('PUT /mock/put');
 export const mockDelete = API('DELETE /mock/delete');
 
 export const login = API('GET /api/getmethods');
+
+export const mockJsonp = API('GET /nodejs/getInfo');
