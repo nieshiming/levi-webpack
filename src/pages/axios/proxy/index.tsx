@@ -45,18 +45,26 @@ const Jsonp = async (
     script.setAttribute('src', `${src}&callback=${encodeURIComponent(method)}`);
     document.body.appendChild(script);
 
-    const timer = setTimeout(() => {
-      reject('timeout 超时啦');
-      delete window[method];
-      document.body.removeChild(script);
-    }, timeout);
-
-    window[method] = data => {
-      resolve(data);
+    const clean = () => {
       clearTimeout(timer);
       delete window[method];
       document.body.removeChild(script);
     };
+
+    const timer = setTimeout(() => {
+      clean();
+      reject('timeout 超时啦');
+    }, timeout);
+
+    window[method] = data => {
+      clean();
+      resolve(data);
+    };
+
+    script.addEventListener('error', () => {
+      clean();
+      reject('资源加载失败');
+    });
   });
 };
 
