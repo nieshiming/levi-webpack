@@ -1,16 +1,16 @@
 import React from 'react';
-import { Card, Row, Col, Button } from 'antd';
 import { getProxyData, getMovieList } from '@/apis';
+import { Card, Row, Col, Button, message } from 'antd';
 
 /**
  * 
- const qs = require('qs')
+  const qs = require('qs')
   const http = require('http')
+
   http
     .createServer((req, res) => {
       const [path, query] = req.url.split('?')
       const params = qs.parse(query, { ignoreQueryPrefix: true })
-      console.log(path)
       res.writeHead(200, { 'Content-Type': 'text/javascript' })
       setTimeout(() => {
         res.end(
@@ -20,27 +20,43 @@ import { getProxyData, getMovieList } from '@/apis';
             date: params.date,
           })})`
         )
-      }, 1000)
+      }, 3000)
     })
     .listen(8081)
 
   console.log('http serve running at 8081')
+
  * */
 
-const Jsonp = async (request: { params: object; callback: string }) => {
+const Jsonp = async (
+  request: { params: object; callback: string; url: string },
+  timeout: number = 2000
+) => {
   return new Promise((resolve, reject) => {
-    const { params, callback } = request;
+    const { url, params, callback } = request;
     const method = `${callback}_${Date.now()}`;
-    window[method] = data => {
-      resolve(data);
-      document.body.removeChild(script);
-      delete window[method];
-    };
+
+    let src: string = url.indexOf('?') > -1 ? url : `${url}?`;
+    for (let key in params) {
+      src += `&${key}=${params[key]}`;
+    }
 
     const script = document.createElement('script');
-    const req = `name=${params.name}&date=${params.date}&callback=${method}`;
-    script.setAttribute('src', `http://10.180.21.95:8081?${req}`);
+    script.setAttribute('src', `${src}&callback=${encodeURIComponent(method)}`);
     document.body.appendChild(script);
+
+    const timer = setTimeout(() => {
+      reject('timeout 超时啦');
+      delete window[method];
+      document.body.removeChild(script);
+    }, timeout);
+
+    window[method] = data => {
+      resolve(data);
+      clearTimeout(timer);
+      delete window[method];
+      document.body.removeChild(script);
+    };
   });
 };
 
@@ -65,11 +81,16 @@ class Baisc extends React.Component<{}, State> {
   };
 
   onMockJsonpRequest = async () => {
-    const result = await Jsonp({
-      params: { name: 'levi', date: Date.now() },
-      callback: 'callback'
-    });
-    console.log(result);
+    try {
+      const result = await Jsonp({
+        params: { name: 'levi', date: Date.now() },
+        callback: 'callback',
+        url: 'http://10.180.21.95:8081'
+      });
+      console.log(result);
+    } catch (err) {
+      message.warning(err);
+    }
   };
 
   render() {
