@@ -1,5 +1,5 @@
-const path = require('path');
 const os = require('os');
+const path = require('path');
 const webpack = require('webpack');
 const HappyPack = require('happypack');
 const WebpackBar = require('webpackbar');

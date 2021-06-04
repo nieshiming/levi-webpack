@@ -1,14 +1,13 @@
 const path = require('path');
+const chalk = require('chalk');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
 const apiMocker = require('mocker-api');
 const notifier = require('node-notifier');
-const chalk = require('chalk');
 
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const NotifierPlugin = require('friendly-errors-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -81,6 +80,5 @@ module.exports = merge(common, {
         });
       }
     })
-    //  new BundleAnalyzerPlugin()
   ]
 });
