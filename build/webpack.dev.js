@@ -9,6 +9,8 @@ const notifier = require('node-notifier');
 const NotifierPlugin = require('friendly-errors-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
+const Levi_Plugin = require('./plugins/levi');
+
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
@@ -52,6 +54,7 @@ module.exports = merge(common, {
     rules: []
   },
   plugins: [
+    new Levi_Plugin(),
     new ForkTsCheckerWebpackPlugin({
       eslint: true,
       memoryLimit: 1024 * 2,
