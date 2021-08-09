@@ -1,10 +1,13 @@
 import React, { FC } from 'react';
 import { Card } from 'antd';
+import { getQueryString } from 'levi-util';
 
 import fetchAllCity from '@/hooks/fetchCity';
 
 const Basic: FC = () => {
   const [loading, city, setCity] = fetchAllCity();
+
+  console.log(getQueryString('name'));
 
   return (
     <Card style={{ width: '100%' }}>
