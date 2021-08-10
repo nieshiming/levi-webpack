@@ -5407,10 +5407,10 @@ levenary@^1.1.1:
   dependencies:
     leven "^3.1.0"
 
-levi-util@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/levi-util/-/levi-util-1.0.12.tgz#f6286fd5f68c595647a7ca605941ffe484c7b356"
-  integrity sha512-AgsLOEERPSMebbPn3fzDn6v2JqE4vswohV944yhFQ4w+AydoozEdN1DSD9Fdj9cD3BHtawwJ91ASx0J7vIrj+g==
+levi-util@^1.0.14:
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/levi-util/-/levi-util-1.0.16.tgz#85ba61bfbadcc7da5c4142c619cf0a0264a97867"
+  integrity sha512-NUoMXrb6CUVyeL/41qSiAw2V7SQShNGvohz7rP1Xy0ACQcI79rMq22ax5S6ZkS2+cDBRpGJSa1hKH3VKz0VpkA==
   dependencies:
     "@babel/runtime" "^7.14.8"
     "@babel/runtime-corejs3" "^7.14.8"
