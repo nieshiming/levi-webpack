@@ -5259,8 +5259,8 @@ isobject@^3.0.0, isobject@^3.0.1:
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
-  resolved "https://registry.npm.taobao.org/js-tokens/download/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
-  integrity sha1-GSA/tZmR35jjoocFDUZHzerzJJk=
+  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
+  integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
 js-yaml@^3.13.1:
   version "3.13.1"
@@ -5407,10 +5407,10 @@ levenary@^1.1.1:
   dependencies:
     leven "^3.1.0"
 
-levi-util@^1.0.14:
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/levi-util/-/levi-util-1.0.16.tgz#85ba61bfbadcc7da5c4142c619cf0a0264a97867"
-  integrity sha512-NUoMXrb6CUVyeL/41qSiAw2V7SQShNGvohz7rP1Xy0ACQcI79rMq22ax5S6ZkS2+cDBRpGJSa1hKH3VKz0VpkA==
+levi-util@^1.0.21:
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/levi-util/-/levi-util-1.0.21.tgz#d548898d439d3c6a02e133d7df394278bc3b645f"
+  integrity sha512-UwuKu5ijaR8/n9Qpxgkt2rdmIcy29ELQcnXtSeNNO5L6s/JGncMVBK91l7wjBIJyXLKrERcpxvtgzo6XM5LO8g==
   dependencies:
     "@babel/runtime" "^7.14.8"
     "@babel/runtime-corejs3" "^7.14.8"
@@ -5635,8 +5635,8 @@ loglevel@^1.6.8:
 
 loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
   version "1.4.0"
-  resolved "https://registry.npm.taobao.org/loose-envify/download/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
-  integrity sha1-ce5R+nvkyuwaY4OffmgtgTLTDK8=
+  resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
+  integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
@@ -7733,9 +7733,9 @@ react-router@5.2.0:
     tiny-warning "^1.0.0"
 
 react@^16.13.1:
-  version "16.13.1"
-  resolved "https://registry.npm.taobao.org/react/download/react-16.13.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact%2Fdownload%2Freact-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
-  integrity sha1-LoGIIvGpdDEiwGPWQQ2FweOv5I4=
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
