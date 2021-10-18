@@ -1,5 +1,6 @@
 /build
 /dist
+/mock
 
 /node_modules
 babel.config.js
