@@ -1,15 +1,13 @@
-import React, { FC } from 'react';
-import imgSrc from './对角线遍历.png';
+import React, { FC } from 'react'
+import imgSrc from './对角线遍历.png'
 
-const Basic: FC = () => {
-  return (
-    <>
-      <img src={imgSrc} alt="" />
-    </>
-  );
-};
+const Basic: FC = () => (
+  <>
+    <img src={imgSrc} alt="" />
+  </>
+)
 
-export default Basic;
+export default Basic
 
 /**
  * @description 二维数组对角线遍历

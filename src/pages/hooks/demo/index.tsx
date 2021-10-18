@@ -1,5 +1,5 @@
-import React, { FC, useState, useMemo, useRef } from 'react';
-import { Card, Button, Divider } from 'antd';
+import { Card, Button, Divider } from 'antd'
+import React, { FC, useState, useMemo, useRef } from 'react'
 
 /**
  * @description 父组件更新， 子组件函数重新运行
@@ -37,13 +37,45 @@ import { Card, Button, Divider } from 'antd';
   @points 可以不用useMemo
   1、不是复杂计算 && 返回基本数据类型
  * */
+
+const Child: FC<{
+  arr: number[]
+}> = (props) => {
+  const [age, setAge] = useState<number>(() => {
+    console.log('child age init')
+
+    return 1
+  })
+  console.log('child construtor render')
+
+  const method = useMemo(() => {
+    console.log('child useMemo refresh')
+    return 'nie'
+  }, [])
+
+  return (
+    <>
+      <h4>levi:{age}</h4>
+      <Button type="dashed" onClick={() => setAge(age + 1)}>
+        add child
+      </Button>
+      <ul>
+        {(props.arr || []).map((item) => (
+          <li key={`${item}`}>{item}</li>
+        ))}
+      </ul>
+      <div>{method}</div>
+    </>
+  )
+}
+
 const Parent: FC = () => {
   const [age, setAge] = useState<number>(() => {
-    console.log('parent init ');
+    console.log('parent init ')
 
-    return 1;
-  });
-  const { current: arr } = useRef([Math.random(), Math.random(), Math.random()]);
+    return 1
+  })
+  const { current: arr } = useRef([Math.random(), Math.random(), Math.random()])
 
   return (
     <Card>
@@ -61,40 +93,7 @@ const Parent: FC = () => {
         <Child arr={arr} />
       </div>
     </Card>
-  );
-};
+  )
+}
 
-const Child: FC<{
-  arr: number[];
-}> = props => {
-  const { arr } = props;
-
-  const [age, setAge] = useState<number>(() => {
-    console.log('child age init');
-
-    return 1;
-  });
-  console.log('child construtor render');
-
-  const method = useMemo(() => {
-    console.log('child useMemo refresh');
-    return 'nie';
-  }, []);
-
-  return (
-    <>
-      <h4>levi:{age}</h4>
-      <Button type="dashed" onClick={() => setAge(age + 1)}>
-        add child
-      </Button>
-      <ul>
-        {(arr || []).map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-      <div>{method}</div>
-    </>
-  );
-};
-
-export default Parent;
+export default Parent

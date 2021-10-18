@@ -1,19 +1,19 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
 const Basic: FC = () => {
   const fn = <T extends unknown>(nums: T[], key: T) => {
     // const activeKey = (key as number) % nums.length;  // splice方法一致
 
-    nums.unshift(...nums.splice(nums.length - (key as number)));
-    console.log(nums);
-  };
+    nums.unshift(...nums.splice(nums.length - (key as number)))
+    console.log(nums)
+  }
 
-  fn<number>([1, 2, 3, 4, 5, 6, 7], 3);
+  fn<number>([1, 2, 3, 4, 5, 6, 7], 3)
 
-  return <>旋转数组</>;
-};
+  return <>旋转数组</>
+}
 
-export default Basic;
+export default Basic
 
 /**
  * @description 旋转数组

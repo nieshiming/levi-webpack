@@ -1,43 +1,43 @@
-import React, { FC } from 'react';
-import { Button, Divider } from 'antd';
-import { atom, useRecoilState, useSetRecoilState, useRecoilValue, selector } from 'recoil';
+import React, { FC } from 'react'
+import { Button, Divider } from 'antd'
+import { atom, useRecoilState, useSetRecoilState, useRecoilValue, selector } from 'recoil'
 
 const baseInfoState = atom({
   key: 'baseInfoState',
   default: {
     name: 'levis',
-    age: 20
-  }
-});
+    age: 20,
+  },
+})
 
 const allInfoComputed = selector({
   key: 'allInfoComputed',
   get: async ({ get }) => {
-    const info = get(baseInfoState);
+    const info = get(baseInfoState)
     // const res = await Promise.resolve(JSON.stringify({ ...info, area: 'shanghai' }));
 
-    const res = await new Promise(resolve => {
+    const res = await new Promise((resolve) => {
       setTimeout(() => {
-        resolve(JSON.stringify({ ...info, area: 'shanghai' }));
-      }, 1000);
-    });
+        resolve(JSON.stringify({ ...info, area: 'shanghai' }))
+      }, 1000)
+    })
 
-    return res;
-  }
-});
+    return res
+  },
+})
 
 const Main: FC = () => {
-  const [info, setInfo] = useRecoilState(baseInfoState);
+  const [info, setInfo] = useRecoilState(baseInfoState)
 
   const addAge = () => {
-    setInfo({ ...info, age: info.age + 1 });
-  };
+    setInfo({ ...info, age: info.age + 1 })
+  }
 
-  console.log('main page');
+  console.log('main page')
 
   /** 这里会触发react 错误辩解 */
   if (info.age > 22) {
-    throw new Error('error happening');
+    throw new Error('error happening')
   }
 
   return (
@@ -49,14 +49,14 @@ const Main: FC = () => {
         update age
       </Button>
     </div>
-  );
-};
+  )
+}
 
 const SubPage: FC = () => {
-  console.log('su page');
-  const info = useRecoilValue(baseInfoState);
-  const setAge = useSetRecoilState(baseInfoState);
-  const computedInfo = useRecoilValue(allInfoComputed);
+  console.log('su page')
+  const info = useRecoilValue(baseInfoState)
+  const setAge = useSetRecoilState(baseInfoState)
+  const computedInfo = useRecoilValue(allInfoComputed)
 
   return (
     <div>
@@ -67,11 +67,11 @@ const SubPage: FC = () => {
         子组件btn
       </Button>
     </div>
-  );
-};
+  )
+}
 
 const Page: FC = () => {
-  console.log('I am Index Page');
+  console.log('I am Index Page')
 
   return (
     <>
@@ -79,10 +79,10 @@ const Page: FC = () => {
       <Divider type="horizontal" />
       <SubPage />
     </>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page
 
 /**
  * @description useRecoilState

@@ -1,18 +1,17 @@
-import React, { FC, useState } from 'react';
-import { Button, List, Typography } from 'antd';
+import React, { FC, useState } from 'react'
+import { Button, List, Typography } from 'antd'
 
 type Props = {
-  name: string;
-};
+  name: string
+}
 
 const Main: FC<Props> = (props: Props) => {
-  const [list, setList] = useState<any[]>([]);
+  const [list, setList] = useState<any[]>([])
 
   const handleGetReq = async () => {
-    console.log(1);
-    setList([]);
-    import('@/apis').then(res => console.log(res));
-  };
+    setList([])
+    import('@/apis').then((res) => console.log(res))
+  }
 
   return (
     <div>
@@ -23,14 +22,14 @@ const Main: FC<Props> = (props: Props) => {
       <List
         bordered
         dataSource={list}
-        renderItem={item => (
+        renderItem={(item) => (
           <List.Item>
             <Typography.Text mark>[name]</Typography.Text> {item.username}
           </List.Item>
         )}
       />
     </div>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main

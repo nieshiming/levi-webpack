@@ -1,16 +1,16 @@
-import React, { FC } from 'react';
-import { Card, Tabs } from 'antd';
+import React, { FC } from 'react'
+import { Card, Tabs } from 'antd'
 
 /** 一维数组 */
-import One from './1';
-import Two from './2';
-import Three from './3';
-import Four from './4';
-import Five from './6';
-import Seven from './7';
-import Eight from './8';
-import Nine from './9';
-import Ten from './10';
+import One from './1'
+import Two from './2'
+import Three from './3'
+import Four from './4'
+import Five from './6'
+import Seven from './7'
+import Eight from './8'
+import Nine from './9'
+import Ten from './10'
 
 const tabArr = [
   { tab: <One />, title: '数组去重' },
@@ -21,23 +21,21 @@ const tabArr = [
   { tab: <Seven />, title: '旋转数组' },
   { tab: <Eight />, title: '重复元素' },
   { tab: <Nine />, title: '只出现一次的数字' },
-  { tab: <Ten />, title: '打平数组' }
-];
+  { tab: <Ten />, title: '打平数组' },
+]
 
-const { TabPane } = Tabs;
+const { TabPane } = Tabs
 
-const basic: FC = () => {
-  return (
-    <Card>
-      <Tabs defaultActiveKey="5">
-        {tabArr.map((item, index) => (
-          <TabPane tab={item.title} key={`${index + 1}`}>
-            {item.tab}
-          </TabPane>
-        ))}
-      </Tabs>
-    </Card>
-  );
-};
+const basic: FC = () => (
+  <Card>
+    <Tabs defaultActiveKey="5">
+      {tabArr.map((item, index) => (
+        <TabPane tab={item.title} key={`${index + 1}`}>
+          {item.tab}
+        </TabPane>
+      ))}
+    </Tabs>
+  </Card>
+)
 
-export default basic;
+export default basic

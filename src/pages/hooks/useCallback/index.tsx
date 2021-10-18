@@ -1,21 +1,21 @@
-import React, { FC, useState, useCallback } from 'react';
-import { Card, Button, message } from 'antd';
+import { Card, Button, message } from 'antd'
+import React, { FC, useState, useCallback } from 'react'
 
 const Basic: FC = () => {
-  const [num, setNum] = useState(1);
+  const [num, setNum] = useState(1)
 
   /**
    * @description 执行函数
    * */
 
   const showMsg = useCallback(() => {
-    message.warn(num);
-  }, [num]);
+    message.warn(num)
+  }, [num])
 
   /**
    * @description 执行jsx
    * */
-  const showContent = useCallback(() => <div>levis:{num}</div>, [num]);
+  const showContent = useCallback(() => <div>levis:{num}</div>, [num])
 
   return (
     <Card>
@@ -28,10 +28,10 @@ const Basic: FC = () => {
         add
       </Button>
     </Card>
-  );
-};
+  )
+}
 
-export default Basic;
+export default Basic
 
 /**
  * @description useCallback

@@ -5,11 +5,11 @@ export const axiosMenu = {
   children: [
     {
       name: 'mock',
-      path: '/axios/mock'
+      path: '/axios/mock',
     },
     {
       name: 'proxy',
-      path: '/axios/proxy'
-    }
-  ]
-};
+      path: '/axios/proxy',
+    },
+  ],
+}

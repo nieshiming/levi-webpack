@@ -1,87 +1,70 @@
-const path = require('path');
-const chalk = require('chalk');
-const webpack = require('webpack');
-const merge = require('webpack-merge');
-const common = require('./webpack.common');
-const apiMocker = require('mocker-api');
-const notifier = require('node-notifier');
+require('dotenv').config()
+const path = require('path')
+const chalk = require('chalk')
+const IP = require('ip').address()
+const webpack = require('webpack')
+const config = require('./webpack.base')
+const notifier = require('node-notifier')
+const { merge } = require('webpack-merge')
+const ESLintPlugin = require('eslint-webpack-plugin')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
-const NotifierPlugin = require('friendly-errors-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const { SERVER_ENV, PORT, HOST } = process.env
 
-const Levi_Plugin = require('./plugins/levi');
-
-module.exports = merge(common, {
+module.exports = merge(config.base, {
   mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-source-map',
+  cache: true,
   devServer: {
-    contentBase: path.resolve(__dirname, '../dist'),
-    port: 8000,
+    host: HOST,
+    port: PORT,
     hot: true,
     quiet: true,
-    overlay: {
-      warnings: true,
-      errors: true
-    },
+    compress: true,
     historyApiFallback: true,
-    clientLogLevel: 'warning' /** 关闭控制台赘余console */,
-    before(app) {
-      apiMocker(app, path.resolve(__dirname, '../mock/index.js'), {});
-    },
-    proxy: {
-      /** 设置代理 */
-      '/douban': {
-        target: 'https://douban.uieee.com/',
-        changeOrigin: true,
-        secure: false,
-        pathRewrite: { '^/douban': '' }
-      },
-      '/api': {
-        target: 'http://127.0.0.1:8888',
-        pathRewrite: {
-          '^/api': ''
-        }
-      }
-      // '/nodejs': {
-      //   target: 'http://10.180.21.95:8081',
-      //   pathRewrite: {
-      //     '^/nodejs': ''
-      //   }
-      // }
-    }
+    contentBase: config.resolvePath('../dist'),
+    stats: 'minimal',
   },
   module: {
-    rules: []
+    rules: [],
   },
   plugins: [
-    new Levi_Plugin(),
-    new ForkTsCheckerWebpackPlugin({
-      eslint: true,
-      memoryLimit: 1024 * 2,
-      tsconfig: path.resolve(__dirname, '../tsconfig.json')
-    }),
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
-      }
+      'process.env': JSON.stringify({
+        SERVER_ENV,
+      }),
     }),
-    new NotifierPlugin({
-      clearConsole: true,
+    new ESLintPlugin({
+      threads: 4,
+      extensions: config.extensions,
+      exclude: ['node_modules'],
+      context: config.resolvePath('../src'),
+    }),
+    new ReactRefreshWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
-        messages: [`application is running here ${chalk.blue('http://localhost:8000')}`],
-        notes: [`NODE_ENV: ${process.env.NODE_ENV}`]
+        messages: [
+          `You can view web-page in the browser \n
+            - Local: running here ${chalk.blue(`http://localhost:${PORT}`)} \n
+            - Newwork: running here ${chalk.blue(`http://${IP}:${PORT}`)}
+          `,
+        ],
+        notes: ['Some additionnal notes to be displayed unpon successful compilation'],
       },
+      clearConsole: true,
       onErrors: (severity, errors) => {
         if (severity !== 'error') {
-          return;
+          return
         }
-        const error = errors[0];
+        const error = errors[0]
         notifier.notify({
           title: 'Webpack error',
           message: severity + ': ' + error.name,
-          subtitle: error.file || ''
-        });
-      }
-    })
-  ]
-});
+          subtitle: error.file || '',
+        })
+      },
+    }),
+  ],
+})

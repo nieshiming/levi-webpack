@@ -1,51 +1,49 @@
-import React, { FC } from 'react';
-import { Card } from 'antd';
+import React, { FC } from 'react'
+import { Card } from 'antd'
 
 const Basic: FC = () => {
   /**
    * @description 数组自带方法
    * */
   const fn = (nums: number[]): number => {
-    if (nums.length === 0) return -1;
+    if (nums.length === 0) return -1
 
-    const max = Math.max.apply(null, nums);
-    const idx = nums.findIndex(item => item === max);
-    const flag = nums.every((item, index) => {
-      return idx === index ? true : max >= 2 * item;
-    });
-    return flag ? idx : -1;
-  };
+    const max = Math.max.apply(null, nums)
+    const idx = nums.findIndex((item) => item === max)
+    const flag = nums.every((item, index) => (idx === index ? true : max >= 2 * item))
+    return flag ? idx : -1
+  }
 
   /*
    * @description 原生求解
    * */
   const fn2 = (nums: number[]): number => {
-    if (nums.length === 0) return -1;
-    let max = 0,
-      secMax = 0,
-      idx = 0;
+    if (nums.length === 0) return -1
+    let max = 0
+    let secMax = 0
+    let idx = 0
     for (let i = 0; i < nums.length; i++) {
       /** 交换值 */
       if (nums[i] > max) {
-        secMax = max;
-        max = nums[i];
-        idx = i;
+        secMax = max
+        max = nums[i]
+        idx = i
       } else if (nums[i] > secMax) {
-        secMax = nums[i];
+        secMax = nums[i]
       }
     }
 
-    return max >= 2 * secMax ? idx : -1;
-  };
+    return max >= 2 * secMax ? idx : -1
+  }
 
-  const result = fn2([0, 0, 2, 2]);
-  console.log(result);
-  console.log(fn);
+  const result = fn2([0, 0, 2, 2])
+  console.log(result)
+  console.log(fn)
 
-  return <Card>至少是其他数组两倍的最大树</Card>;
-};
+  return <Card>至少是其他数组两倍的最大树</Card>
+}
 
-export default Basic;
+export default Basic
 
 /**
  * @description 至少是其他数组两倍的最大数

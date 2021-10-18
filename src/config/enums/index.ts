@@ -1,4 +1,4 @@
 export enum Shop {
   apple,
-  huawei
+  huawei,
 }

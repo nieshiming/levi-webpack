@@ -1,18 +1,18 @@
-import React, { FC, useState, useCallback } from 'react';
-import { Card, Button } from 'antd';
+import React, { FC, useState, useCallback } from 'react'
+import { Card, Button } from 'antd'
 
 const Basic: FC = () => {
-  const [num, setNum] = useState(() => 22222); // 基本类型
-  const [arr, setArr] = useState([3]);
+  const [num, setNum] = useState(() => 22222) // 基本类型
+  const [arr, setArr] = useState([3])
 
   const arrFn = useCallback(
     (nums: number) => {
-      arr.push(nums);
-      setArr(Object.assign([], arr));
+      arr.push(nums)
+      setArr(Object.assign([], arr))
       // setArr([...arr])
     },
-    [arr, setArr]
-  ); // 传入[]只会在初始化的时候执行
+    [arr, setArr],
+  ) // 传入[]只会在初始化的时候执行
 
   return (
     <Card>
@@ -25,10 +25,10 @@ const Basic: FC = () => {
         点击 = 引用类型
       </Button>
     </Card>
-  );
-};
+  )
+}
 
-export default Basic;
+export default Basic
 
 /**
  * @description useState

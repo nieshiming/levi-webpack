@@ -1,18 +1,18 @@
-import React, { FC, useState, useMemo } from 'react';
-import { Card, Button } from 'antd';
+import React, { FC, useState, useMemo } from 'react'
+import { Card, Button } from 'antd'
 
 const Basic: FC = () => {
-  const [num, setNum] = useState(1);
+  const [num, setNum] = useState(1)
 
   /**
    * @description 返回jsx直接渲染界面
    * */
-  const Content = useMemo(() => <div>useMemo{num}</div>, [num]);
+  const Content = useMemo(() => <div>useMemo{num}</div>, [num])
 
   /**
    * @description 返回函数
    * */
-  const showMsg = useMemo(() => console.log, []);
+  const showMsg = useMemo(() => console.log, [])
 
   return (
     <Card>
@@ -23,10 +23,10 @@ const Basic: FC = () => {
         add
       </Button>
     </Card>
-  );
-};
+  )
+}
 
-export default Basic;
+export default Basic
 
 /**
  * @description useMemo

@@ -9,9 +9,9 @@ export const algorithmMenu = {
       children: [
         {
           name: 'base',
-          path: '/algorithm/array/base'
-        }
-      ]
-    }
-  ]
-};
+          path: '/algorithm/array/base',
+        },
+      ],
+    },
+  ],
+}

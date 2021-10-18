@@ -1,60 +1,51 @@
-import React, {
-  FC,
-  forwardRef,
-  createRef,
-  useCallback,
-  ForwardRefExoticComponent,
-  Ref
-} from 'react';
-import { Card, Button, message, Row, Col } from 'antd';
+import { Card, Button, message, Row, Col } from 'antd'
+import React, { FC, forwardRef, createRef, useCallback, ForwardRefExoticComponent, Ref } from 'react'
 
 const initState = {
-  name: 'nsm'
-};
+  name: 'nsm',
+}
 
-type State = Readonly<typeof initState>;
+type State = Readonly<typeof initState>
 
 class Levi extends React.Component<{}, State> {
-  readonly state = initState;
+  readonly state = initState
 
   showMe = () => {
-    message.info('levis info');
-  };
+    message.info('levis info')
+  }
 
   render() {
-    const { children } = this.props;
-    const { name } = this.state;
+    const { children } = this.props
+    const { name } = this.state
 
     return (
       <div>
         {children}/{name}
       </div>
-    );
+    )
   }
 }
 
-const Btn1: ForwardRefExoticComponent<{ ref: any; children: string }> = forwardRef(
-  (props, ref: any) => (
-    <Button ref={ref} className="levisBtn">
-      {props.children}
-    </Button>
-  )
-);
+const Btn1: ForwardRefExoticComponent<{ ref: any; children: string }> = forwardRef((props, ref: any) => (
+  <Button ref={ref} className="levisBtn">
+    {props.children}
+  </Button>
+))
 
 const Btn2: ForwardRefExoticComponent<{
-  ref: Ref<Levi>;
-  children: string;
-}> = forwardRef((props, ref: Ref<Levi>) => <Levi ref={ref}>{props.children}</Levi>);
+  ref: Ref<Levi>
+  children: string
+}> = forwardRef((props, ref: Ref<Levi>) => <Levi ref={ref}>{props.children}</Levi>)
 
-const ref = createRef<Levi>();
-const ref1 = createRef<any>();
+const ref = createRef<Levi>()
+const ref1 = createRef<any>()
 
 const Baisc: FC = () => {
   const getRefs = useCallback(() => {
     /** 获取转发的refs */
-    console.log(ref.current);
-    ref.current.showMe();
-  }, []);
+    console.log(ref.current)
+    ref.current.showMe()
+  }, [])
 
   return (
     <Card>
@@ -72,9 +63,9 @@ const Baisc: FC = () => {
         </Col>
       </Row>
     </Card>
-  );
-};
-export default Baisc;
+  )
+}
+export default Baisc
 
 /**
  * @description ref转发 是一项将ref自动的通过组件传递到一子组件技巧

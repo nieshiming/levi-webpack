@@ -1,14 +1,14 @@
-import React, { FC, useCallback } from 'react';
-import { Card, Button } from 'antd';
-import { useDocumentTitle, useNums } from './demo';
+import React, { FC, useCallback } from 'react'
+import { Card, Button } from 'antd'
+import { useDocumentTitle, useNums } from './demo'
 
 const Basic: FC = () => {
-  const [setTitles] = useDocumentTitle('nsm ');
-  const { num, setNumMethods } = useNums(0);
+  const [setTitles] = useDocumentTitle('nsm ')
+  const { num, setNumMethods } = useNums(0)
 
   const changeTitle = useCallback(() => {
-    setTitles('levis');
-  }, [setTitles]);
+    setTitles('levis')
+  }, [setTitles])
 
   return (
     <Card>
@@ -21,10 +21,10 @@ const Basic: FC = () => {
         更改num
       </Button>
     </Card>
-  );
-};
+  )
+}
 
-export default Basic;
+export default Basic
 
 /**
  * 订阅自定义hooks，暴露出方法以及只，引用的hooks更新后，父组件同样因为闭包也会更新值

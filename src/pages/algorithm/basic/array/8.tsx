@@ -1,29 +1,27 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
 const Basic: FC = () => {
-  const fn = (nums: number[]): boolean => {
-    return nums.length !== new Set(nums).size;
-  };
+  const fn = (nums: number[]): boolean => nums.length !== new Set(nums).size
 
   const fn2 = (nums: number[]): boolean => {
-    const selectArr: number[] = [];
+    const selectArr: number[] = []
 
     for (let i = 0; i < nums.length; i++) {
       if (selectArr.includes(nums[i])) {
-        return true;
+        return true
       }
-      selectArr.push(nums[i]);
+      selectArr.push(nums[i])
     }
 
-    console.log(fn);
-    return false;
-  };
+    console.log(fn)
+    return false
+  }
 
-  console.log(fn2([1, 2, 3, 1]));
-  return <>存在重复元素</>;
-};
+  console.log(fn2([1, 2, 3, 1]))
+  return <>存在重复元素</>
+}
 
-export default Basic;
+export default Basic
 
 /**
  * @description 存在重复

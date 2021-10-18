@@ -1,15 +1,6 @@
-import React, { FC } from 'react';
-import styled from 'styled-components';
-
-import LoginForm from './login';
-
-const Login: FC = () => {
-  return (
-    <Wrapper>
-      <LoginForm />
-    </Wrapper>
-  );
-};
+import React, { FC } from 'react'
+import LoginForm from './login'
+import styled from 'styled-components'
 
 const Wrapper = styled.div`
   height: 100%;
@@ -20,6 +11,12 @@ const Wrapper = styled.div`
     background-color:#f0f2f5 
   background-size: 100% 100%;
   background-position: bottom;
-`;
+`
 
-export default Login;
+const Login: FC = () => (
+  <Wrapper>
+    <LoginForm />
+  </Wrapper>
+)
+
+export default Login

@@ -1,6 +1,6 @@
-import React from 'react';
-import { getProxyData, getMovieList } from '@/apis';
-import { Card, Row, Col, Button, message } from 'antd';
+import React from 'react'
+import { getProxyData, getMovieList } from '@/apis'
+import { Card, Row, Col, Button, message } from 'antd'
 
 /**
  * 
@@ -28,78 +28,81 @@ import { Card, Row, Col, Button, message } from 'antd';
 
  * */
 
-const Jsonp = async (
-  request: { params: object; callback: string; url: string },
-  timeout: number = 2000
-) => {
-  return new Promise((resolve, reject) => {
-    const { url, params, callback } = request;
-    const method = `${callback}_${Date.now()}`;
+const Jsonp = async (request: { params: object; callback: string; url: string }, timeout: number = 2000) => {
+  console.log('jsonp start')
 
-    let src: string = url.indexOf('?') > -1 ? url : `${url}?`;
-    for (let key in params) {
-      src += `&${key}=${params[key]}`;
+  return new Promise((resolve, reject) => {
+    const { url, params, callback } = request
+    const method = `${callback}_${Date.now()}`
+
+    let src: string = url.indexOf('?') > -1 ? url : `${url}?`
+
+    for (const key in params) {
+      src += `&${key}=${params[key]}`
     }
 
-    const script = document.createElement('script');
-    script.setAttribute('src', `${src}&callback=${encodeURIComponent(method)}`);
-    document.body.appendChild(script);
-
-    const clean = () => {
-      clearTimeout(timer);
-      delete window[method];
-      document.body.removeChild(script);
-    };
+    const script = document.createElement('script')
+    script.setAttribute('src', `${src}&callback=${encodeURIComponent(method)}`)
+    document.body.appendChild(script)
 
     const timer = setTimeout(() => {
-      clean();
-      reject('timeout 超时啦');
-    }, timeout);
+      reject()
+    }, timeout)
 
-    window[method] = data => {
-      clean();
-      resolve(data);
-    };
+    const clean = () => {
+      clearTimeout(timer)
+      delete window[method]
+      document.body.removeChild(script)
+    }
+
+    window[method] = (data) => {
+      clean()
+      resolve(data)
+    }
 
     script.addEventListener('error', () => {
-      clean();
-      reject('资源加载失败');
-    });
-  });
-};
+      clean()
+      reject()
+    })
+  })
+}
 
-const initState = {};
-type State = Readonly<typeof initState>;
+const initState = {}
+type State = Readonly<typeof initState>
 
 class Baisc extends React.Component<{}, State> {
-  readonly state = initState;
+  readonly state = initState
 
   apigetProxyData = async () => {
     try {
-      const { data } = await getProxyData();
-      console.log(data);
-    } catch (e) {}
-  };
+      const { data } = await getProxyData()
+      console.log(data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   getMovieList = async () => {
     try {
-      const res = await getMovieList();
-      console.log(res);
-    } catch (e) {}
-  };
+      const res = await getMovieList()
+      console.log(res)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   onMockJsonpRequest = async () => {
     try {
       const result = await Jsonp({
         params: { name: 'levi', date: Date.now() },
         callback: 'callback',
-        url: 'http://10.180.21.95:8081'
-      });
-      console.log(result);
+        url: 'http://10.180.21.95:8081',
+      })
+      console.log(result)
     } catch (err) {
-      message.warning(err);
+      message.warning(err)
     }
-  };
+  }
 
   render() {
     return (
@@ -122,8 +125,8 @@ class Baisc extends React.Component<{}, State> {
           </Col>
         </Row>
       </Card>
-    );
+    )
   }
 }
 
-export default Baisc;
+export default Baisc

@@ -1,42 +1,42 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
 const Basic: FC = () => {
   // 完成多笔
   const fn = (nums: number[]): number => {
-    let count = 0;
+    let count = 0
 
     for (let i = 0; i < nums.length; i++) {
       if (nums[i + 1] >= nums[i]) {
-        count += nums[i + 1] - nums[i];
+        count += nums[i + 1] - nums[i]
       }
     }
 
-    return count;
-  };
+    return count
+  }
 
   // 完成一笔
   const singleMethod = (nums: number[]) => {
-    let minCount = nums[0];
-    let res = 0;
+    let minCount = nums[0]
+    let res = 0
 
     for (let i = 0; i < nums.length; i++) {
       if (nums[i] < minCount) {
-        minCount = nums[i];
+        minCount = nums[i]
       } else {
-        res = Math.max(res, nums[i] - minCount);
+        res = Math.max(res, nums[i] - minCount)
       }
     }
 
-    return res;
-  };
+    return res
+  }
 
   // 完成一笔 => 动态规划
   const dynamic = (nums: number) => {
-    let temp = 0;
-    let result = 0;
+    let temp = 0
+    let result = 0
 
     for (let i = 1; i < nums.length; i++) {
-      temp += nums[i] - nums[i - 1];
+      temp += nums[i] - nums[i - 1]
 
       /**
        * @desc
@@ -45,25 +45,25 @@ const Basic: FC = () => {
        *  如果累计到负数，其实没有意义。 temp重置为0，并且保留之前最大数result， 取新的一段 开始计算，
        * */
       if (temp < 0) {
-        temp = 0;
+        temp = 0
       }
 
       if (temp > result) {
-        result = temp;
+        result = temp
       }
     }
 
-    return result;
-  };
+    return result
+  }
 
-  console.log(fn([7, 1, 5, 3, 6, 4]));
-  console.log(singleMethod([7, 2, 5, 1, 4, 3, 6, 4]));
-  console.log(dynamic([7, 2, 5, 1, 4, 3, 6, 4]));
+  console.log(fn([7, 1, 5, 3, 6, 4]))
+  console.log(singleMethod([7, 2, 5, 1, 4, 3, 6, 4]))
+  console.log(dynamic([7, 2, 5, 1, 4, 3, 6, 4]))
 
-  return <>买卖股票的最佳时机</>;
-};
+  return <>买卖股票的最佳时机</>
+}
 
-export default Basic;
+export default Basic
 
 /**
  * @description 买卖股票的最佳时机

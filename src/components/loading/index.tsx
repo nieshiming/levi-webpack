@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Spin } from 'antd';
-import { LoadingOutlined } from '@ant-design/icons';
+import React from 'react'
+import { Spin } from 'antd'
+import styled from 'styled-components'
+import { LoadingOutlined } from '@ant-design/icons'
 
 const StyledLoading = styled.div`
   position: fixed;
@@ -14,14 +14,14 @@ const StyledLoading = styled.div`
   align-items: center;
   font-size: 20px;
   color: #1890ff;
-`;
+`
 
 function Loading() {
   return (
     <StyledLoading>
-      <Spin indicator={<LoadingOutlined type="loading" style={{ fontSize: 24 }} spin />} />
+      <Spin indicator={<LoadingOutlined style={{ fontSize: 24 }} />} />
     </StyledLoading>
-  );
+  )
 }
 
-export default Loading;
+export default Loading

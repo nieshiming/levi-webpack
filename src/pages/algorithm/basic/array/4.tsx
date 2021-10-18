@@ -1,34 +1,36 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
 const Basic: FC = () => {
-  const fn = (nums: number[]): number[] => {
-    let isCarry = false;
+  const fn = (arr: number[]): number[] => {
+    const nums = arr
+
+    let isCarry = false
 
     for (let i = nums.length - 1; i > -1; i--) {
       if (isCarry || i === nums.length - 1) {
-        nums[i] = nums[i] + 1;
+        nums[i] += 1
       }
 
       if (nums[i] === 10) {
-        isCarry = true;
-        nums[i] = 0;
+        isCarry = true
+        nums[i] = 0
       } else {
-        isCarry = false;
+        isCarry = false
       }
     }
 
-    if (isCarry) nums.unshift(1);
+    if (isCarry) nums.unshift(1)
 
-    return nums;
-  };
+    return nums
+  }
 
-  const result = fn([9]);
-  console.log(result);
+  const result = fn([9])
+  console.log(result)
 
-  return <>加一</>;
-};
+  return <>加一</>
+}
 
-export default Basic;
+export default Basic
 
 /**
  * @description 加一

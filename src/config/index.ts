@@ -1,3 +1,3 @@
-export const store = [1, 2, 3, 4];
+export const store = [1, 2, 3, 4]
 
-export const newLists = ['jack', 'levi', 'mary'];
+export const newLists = ['jack', 'levi', 'mary']

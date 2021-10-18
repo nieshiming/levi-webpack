@@ -1,7 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-const Basic: FC = () => {
-  return <div>字符串</div>;
-};
+const Basic: FC = () => <div>字符串</div>
 
-export default Basic;
+export default Basic

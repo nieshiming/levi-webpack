@@ -1,15 +1,13 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
 const Baisc: FC = () => {
-  const fn = (nums: number[]): boolean => {
-    return true;
-  };
+  const fn = (nums: number[]): boolean => nums.includes(1)
 
-  console.log(fn);
-  return <>只出现一次的数字</>;
-};
+  console.log(fn)
+  return <>只出现一次的数字</>
+}
 
-export default Baisc;
+export default Baisc
 
 /**
  * @description 只出现一次的数字

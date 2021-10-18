@@ -1,51 +1,69 @@
-import React, { FC, useCallback, useState, useEffect } from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
-import styled from 'styled-components';
-import { Layout, Row, Col, Avatar, Menu, Dropdown, Breadcrumb } from 'antd';
 import {
   HomeOutlined,
   MenuUnfoldOutlined,
   DownOutlined,
   LogoutOutlined,
   SettingOutlined,
-  UserOutlined
-} from '@ant-design/icons';
-import menus from '@/config/menus';
-import { MenuItem } from '@/config/menus/interface';
+  UserOutlined,
+} from '@ant-design/icons'
+import menus from '@/config/menus'
+import styled from 'styled-components'
+import { MenuItem } from '@/config/menus/interface'
+import { withRouter, RouteComponentProps } from 'react-router-dom'
+import React, { FC, useCallback, useState, useEffect } from 'react'
+import { Layout, Row, Col, Avatar, Menu, Dropdown, Breadcrumb } from 'antd'
 
-const { Header } = Layout;
+const { Header } = Layout
 
-interface Props extends RouteComponentProps {}
+const HeaderWrapper = styled(Header)`
+  background: #fff !important;
+  padding: 0 20px !important;
+`
 
-const Basic: FC<Props> = props => {
-  const [currentMenu, setcurrentMenu] = useState([]);
+const AvatarWrapper = styled.div`
+  margin-left: 30px;
+  height: 100%;
+  display: inline-block;
+  .user {
+    margin-top: -1px;
+    margin-right: 5px;
+  }
+`
+
+const BreadcrumbWrapper = styled(Breadcrumb)`
+  line-height: 60px !important;
+  padding-left: 15px !important;
+`
+
+type Props = RouteComponentProps
+
+const Basic: FC<Props> = (props) => {
+  const [currentMenu, setcurrentMenu] = useState([])
 
   /** 获取当前激活菜单 */
   useEffect(() => {
-    const pathName = window.location.pathname;
+    const pathName = window.location.pathname
 
-    (menus || []).forEach((item: MenuItem) => {
+    ;(menus || []).forEach((item: MenuItem) => {
       if (Array.isArray(item.children)) {
-        item.children.forEach(subItem => {
+        item.children.forEach((subItem) => {
           if (subItem.path === pathName) {
-            setcurrentMenu([].concat([item.name, subItem.name]));
+            setcurrentMenu([].concat([item.name, subItem.name]))
           }
-        });
+        })
       }
 
-      if (item.path === pathName) setcurrentMenu([].concat([item.name]));
-    });
-  }, [props]);
+      if (item.path === pathName) setcurrentMenu([].concat([item.name]))
+    })
+  }, [props])
 
   const goLogin = useCallback(() => {
-    const { history } = props;
-    history.push('/login');
-  }, [props]);
+    props.history.push('/login')
+  }, [props])
 
   const goHome = useCallback(() => {
-    const { history } = props;
-    history.push('/dashboard');
-  }, [props]);
+    props.history.push('/dashboard')
+  }, [props])
 
   const menu = (
     <Menu>
@@ -60,7 +78,7 @@ const Basic: FC<Props> = props => {
         <LogoutOutlined /> 退出登录
       </Menu.Item>
     </Menu>
-  );
+  )
 
   return (
     <HeaderWrapper>
@@ -73,11 +91,9 @@ const Basic: FC<Props> = props => {
             <Col>
               <BreadcrumbWrapper>
                 <Breadcrumb.Item onClick={goHome}>
-                  <a>
-                    <HomeOutlined />
-                  </a>
+                  <HomeOutlined />
                 </Breadcrumb.Item>
-                {(currentMenu || []).map(item => (
+                {(currentMenu || []).map((item) => (
                   <Breadcrumb.Item key={item}>{item}</Breadcrumb.Item>
                 ))}
               </BreadcrumbWrapper>
@@ -100,27 +116,7 @@ const Basic: FC<Props> = props => {
         </Col>
       </Row>
     </HeaderWrapper>
-  );
-};
+  )
+}
 
-const HeaderWrapper = styled(Header)`
-  background: #fff !important;
-  padding: 0 20px !important;
-`;
-
-const AvatarWrapper = styled.div`
-  margin-left: 30px;
-  height: 100%;
-  display: inline-block;
-  .user {
-    margin-top: -1px;
-    margin-right: 5px;
-  }
-`;
-
-const BreadcrumbWrapper = styled(Breadcrumb)`
-  line-height: 60px !important;
-  padding-left: 15px !important;
-`;
-
-export default withRouter(Basic);
+export default withRouter(Basic)

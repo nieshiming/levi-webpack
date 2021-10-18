@@ -5,19 +5,19 @@ export const typescriptMenu = {
   children: [
     {
       name: '基本类型',
-      path: '/typescript/base'
+      path: '/typescript/base',
     },
     {
       name: '函数',
-      path: '/typescript/function'
+      path: '/typescript/function',
     },
     {
       name: '泛型',
-      path: '/typescript/generic'
+      path: '/typescript/generic',
     },
     {
       name: '高级类型',
-      path: '/typescript/advancedType'
-    }
-  ]
-};
+      path: '/typescript/advancedType',
+    },
+  ],
+}

@@ -1,18 +1,38 @@
-import React, { FC, useState, useContext, createContext, useEffect } from 'react';
-import { Card, Button } from 'antd';
+import { Card, Button } from 'antd'
+import React, { FC, useState, useContext, createContext, useEffect } from 'react'
 
-let defaultContext = { name: 'nsm' };
-const BasicContext = React.createContext({ name: 'initName', fn: console.log });
-const SecContext = React.createContext(20);
+const defaultContext = { name: 'nsm' }
+const BasicContext = React.createContext({ name: 'initName', fn: console.log })
+const SecContext = React.createContext(20)
+
+const Page: FC = (props) => {
+  console.log('pageinit')
+  return (
+    <>
+      <div>{props.children}</div>
+      <div>{props.left}</div>
+      <div>{props.right}</div>
+    </>
+  )
+}
+
+const ChildPage = (props) => {
+  console.log(props.context, 'render')
+  return (
+    <div>
+      我是context{props.context.name}/{props.age}
+    </div>
+  )
+}
 
 const App = () => {
-  const [context, setContext] = useState(defaultContext);
+  const [context, setContext] = useState(defaultContext)
 
   useEffect(() => {
     setTimeout(() => {
-      setContext(prev => ({ ...prev, name: 'xxx' }));
-    }, 2000);
-  }, []);
+      setContext((prev) => ({ ...prev, name: 'xxx' }))
+    }, 2000)
+  }, [])
 
   /**
    * @title 订阅组件变化
@@ -23,75 +43,52 @@ const App = () => {
       <SecContext.Provider value={21}>
         <Page left={<div>left child</div>} right={<div>right child</div>}>
           <BasicContext.Consumer>
-            {value => (
+            {(value) => (
               <SecContext.Consumer>
                 {/* 消费多个Consumer */}
-                {age => <ChildPage context={value} age={age} />}
+                {(age) => <ChildPage context={value} age={age} />}
               </SecContext.Consumer>
             )}
           </BasicContext.Consumer>
         </Page>
       </SecContext.Provider>
     </BasicContext.Provider>
-  );
-};
-
-const Page: FC = props => {
-  console.log('pageinit');
-  return (
-    <>
-      <div>{props.children}</div>
-      <div>{props.left}</div>
-      <div>{props.right}</div>
-    </>
-  );
-};
-
-const ChildPage = props => {
-  console.log(props.context, 'render');
-  return (
-    <div>
-      我是context{props.context.name}/{props.age}
-    </div>
-  );
-};
+  )
+}
 
 const nieObj = {
   name: 'levi',
-  age: 20
-};
-const NieContext = createContext(nieObj);
+  age: 20,
+}
+const NieContext = createContext(nieObj)
 
 const Basic: FC = () => {
-  const levi = useContext(NieContext);
+  const levi = useContext(NieContext)
   return (
     <Card>
       <h4>name: {levi.name}</h4>
       <h4>age: {levi.age}</h4>
     </Card>
-  );
-};
+  )
+}
 
 const Parent: FC = () => {
-  const [nieInfo, setNieInfo] = useState(nieObj);
+  const [nieInfo, setNieInfo] = useState(nieObj)
 
   return (
     <NieContext.Provider value={nieInfo}>
       <Basic />
       <App />
       <div>
-        <Button
-          type="ghost"
-          onClick={() => setNieInfo(Object.assign({}, nieInfo, { age: nieInfo.age + 1 }))}
-        >
+        <Button type="ghost" onClick={() => setNieInfo({ ...nieInfo, age: nieInfo.age + 1 })}>
           update
         </Button>
       </div>
     </NieContext.Provider>
-  );
-};
+  )
+}
 
-export default Parent;
+export default Parent
 
 /**
  * @description useContext

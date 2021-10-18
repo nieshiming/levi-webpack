@@ -1,23 +1,23 @@
-import React, { FC, useRef, useCallback, useState, useEffect } from 'react';
-import { Card, Button, message } from 'antd';
+import { Card, Button, message } from 'antd'
+import React, { FC, useRef, useCallback, useState, useEffect } from 'react'
 
-let name = 111;
+let name = 111
 
 /**
  * @description useEffect 里面执行的副作用，在视图更新之后再执行
  * */
 const EventRef = () => {
-  const [count, setCount] = useState<number>(0);
-  const refs = useRef<number>(0);
+  const [count, setCount] = useState<number>(0)
+  const refs = useRef<number>(0)
 
-  console.log(1);
+  console.log(1)
 
   useEffect(() => {
-    console.log('view update');
-    refs.current = count;
-    name = name + 1;
-  });
-  console.log(2);
+    console.log('view update')
+    refs.current = count
+    name += 1
+  })
+  console.log(2)
 
   return (
     <>
@@ -28,20 +28,30 @@ const EventRef = () => {
         click
       </Button>
     </>
-  );
-};
+  )
+}
 
-console.log(EventRef);
+console.log(EventRef)
+
+class Child extends React.Component<{}, {}> {
+  show = () => {
+    message.success('child method')
+  }
+
+  render() {
+    return <div>i am child</div>
+  }
+}
 
 const Basic: FC = () => {
-  const myRef = useRef();
-  const childRef = useRef<Child>();
-  const { current: users } = useRef({ name: 'levi' }); // 创建ref对象
+  const myRef = useRef()
+  const childRef = useRef<Child>()
+  const { current: users } = useRef({ name: 'levi' }) // 创建ref对象
 
   const showRef = useCallback(() => {
-    console.log(myRef.current);
-    childRef.current.show();
-  }, []);
+    console.log(myRef.current)
+    childRef.current.show()
+  }, [])
 
   return (
     <Card>
@@ -52,20 +62,10 @@ const Basic: FC = () => {
         打印ref
       </Button>
     </Card>
-  );
-};
-
-class Child extends React.Component<{}, {}> {
-  show = () => {
-    message.success('child method');
-  };
-
-  render() {
-    return <div>i am child</div>;
-  }
+  )
 }
 
-export default Basic;
+export default Basic
 
 /**
  * @description useRef 返回一个可变的ref对象

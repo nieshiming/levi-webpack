@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { Row, Button } from 'antd';
+import React, { FC } from 'react'
+import { Row, Button } from 'antd'
 
 const Baisc: FC = () => {
   /** reduce
@@ -7,22 +7,18 @@ const Baisc: FC = () => {
    * [].concat([1,2,3,4]) === [1,2,3,4]
    * [].concat(1,2) = [1,2]
    */
-  const reduceFn = (nums: any[]): number[] => {
-    return nums.reduce((pre, cur) => pre.concat(Array.isArray(cur) ? reduceFn(cur) : cur), []);
-  };
+  const reduceFn = (nums: any[]): number[] =>
+    nums.reduce((pre, cur) => pre.concat(Array.isArray(cur) ? reduceFn(cur) : cur), [])
 
   /** toString 针对number[] */
-  const toStringFn = (nums: any[]): number[] => {
-    return nums
+  const toStringFn = (nums: any[]): number[] =>
+    nums
       .toString()
       .split(',')
-      .map(item => +item);
-  };
+      .map((item) => +item)
 
-  /** 正则表达式 替换全部[ ] 注意正则表达式*/
-  const regFn = (nums: any[]): number[] => {
-    return JSON.parse(`[${JSON.stringify(nums).replace(/\[|]/g, '')}]`);
-  };
+  /** 正则表达式 替换全部[ ] 注意正则表达式 */
+  const regFn = (nums: any[]): number[] => JSON.parse(`[${JSON.stringify(nums).replace(/\[|]/g, '')}]`)
 
   /**
    * @description concat 语法
@@ -31,11 +27,10 @@ const Baisc: FC = () => {
    * 重点是将返回的数组打平
    * @points Array.prototype.concat.apply([], [xxx])
    */
-  const concatFn = (nums: any[]): number[] => {
-    return Array.isArray(nums) ? Array.prototype.concat.apply([], nums.map(concatFn)) : nums;
-  };
+  const concatFn = (nums: any[]): number[] =>
+    Array.isArray(nums) ? Array.prototype.concat.apply([], nums.map(concatFn)) : nums
 
-  const arr = [1, [2, 3], 4, [[5, 6], 7]];
+  const arr = [1, [2, 3], 4, [[5, 6], 7]]
 
   return (
     <Row gutter={20} justify="start">
@@ -55,7 +50,7 @@ const Baisc: FC = () => {
         concat
       </Button>
     </Row>
-  );
-};
+  )
+}
 
-export default Baisc;
+export default Baisc

@@ -1,24 +1,24 @@
-import React, { FC, useState, useEffect, useCallback } from 'react';
-import { Card, Button } from 'antd';
+import { Card, Button } from 'antd'
+import React, { FC, useState, useEffect, useCallback } from 'react'
 
 interface IProps {
-  age: number;
+  age: number
 }
 
 const Basic: FC<IProps> = (props: IProps) => {
-  const [num, setNum] = useState(1);
-  const [info, setInfo] = useState(() => ({ name: 'levi' }));
+  const [num, setNum] = useState(1)
+  const [info, setInfo] = useState(() => ({ name: 'levi' }))
 
-  console.log('每次渲染过程,函数都会执行一次初始化过程,useState,useEffect除外,会在内存中重新取值');
-  let nie = 1;
-
-  useEffect(() => {
-    console.log('每次重新渲染都会更新');
-  });
+  console.log('每次渲染过程,函数都会执行一次初始化过程,useState,useEffect除外,会在内存中重新取值')
+  const nie = 1
 
   useEffect(() => {
-    console.log('只会在初始化时候渲染一次');
-  }, []);
+    console.log('每次重新渲染都会更新')
+  })
+
+  useEffect(() => {
+    console.log('只会在初始化时候渲染一次')
+  }, [])
 
   /**
    * @description ingo, nie, props.age变化的时候都会重新执行useEffect
@@ -26,19 +26,19 @@ const Basic: FC<IProps> = (props: IProps) => {
    * nie触发无效，每次渲染结束后 nie === 1,
    * */
   useEffect(() => {
-    console.log(`info更新的时候渲染:${Object.assign({}, info)}`);
+    console.log(`info更新的时候渲染:${info}`)
 
     return () => {
-      console.log('销毁的时候执行');
-    };
-  }, [info, nie, props.age]);
+      console.log('销毁的时候执行')
+    }
+  }, [info, nie, props.age])
 
   const addNie = useCallback(() => {
-    const news = nie + 1;
-    console.log(news);
-  }, [nie]);
+    const news = nie + 1
+    console.log(news)
+  }, [nie])
 
-  console.log('执行渲染');
+  console.log('执行渲染')
 
   return (
     <Card>
@@ -49,10 +49,7 @@ const Basic: FC<IProps> = (props: IProps) => {
         点击
       </Button>
 
-      <Button
-        type="primary"
-        onClick={() => setInfo(Object.assign({}, info, { name: `levi:${num + 1}` }))}
-      >
+      <Button type="primary" onClick={() => setInfo({ ...info, name: `levi:${num + 1}` })}>
         更新info
       </Button>
 
@@ -60,11 +57,11 @@ const Basic: FC<IProps> = (props: IProps) => {
         更新基本数字
       </Button>
     </Card>
-  );
-};
+  )
+}
 
 const Parent: FC = () => {
-  const [age, setAge] = useState(12);
+  const [age, setAge] = useState(12)
 
   return (
     <div>
@@ -75,10 +72,10 @@ const Parent: FC = () => {
         </Button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Parent;
+export default Parent
 
 /**
  * @description useEffect
