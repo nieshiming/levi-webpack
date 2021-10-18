@@ -1,4 +1,5 @@
 #### 从排序数组中删除重复项 leetcode-26
+
 > 注意是有序数组
 
 ```javascript
@@ -43,114 +44,117 @@
   };
 ```
 
+#### 寻找中心索引 leetcode-724
 
-#### 寻找中心索引 leetcode-724 
 > 我们是这样定义数组中心索引的：数组中心索引的左侧所有元素相加的和等于右侧所有元素相加的和。
+
 ```javascript
-  /**
-   * @description 940ms
-   * 主要是 每次函数执行 slice、reduce影响
-   * */
-  const fn = (arr: number[]) => {
-    let idx = -1;
-    if (arr.length < 3) return idx;
+/**
+ * @description 940ms
+ * 主要是 每次函数执行 slice、reduce影响
+ * */
+const fn = (arr: number[]) => {
+  let idx = -1
+  if (arr.length < 3) return idx
 
-    const sum = arr.reduce((pre, cur) => pre + cur, 0);
+  const sum = arr.reduce((pre, cur) => pre + cur, 0)
 
-    arr.forEach((item, index) => {
-      const splitArr = arr.slice(0, index);
-      const newSum = splitArr.reduce((pre, cur) => pre + cur, 0);
+  arr.forEach((item, index) => {
+    const splitArr = arr.slice(0, index)
+    const newSum = splitArr.reduce((pre, cur) => pre + cur, 0)
 
-      if ((sum - item) / 2 === newSum && idx === -1) {
-        idx = index;
-      }
-    });
-
-    return idx;
-  };
-
-  /**
-   * @description 改进版本 70ms
-   */
-  const fn2 = (arr: number[]) => {
-    let idx = -1,
-      leftNum = 0;
-    if (arr.length < 3) return idx;
-
-    const sum = arr.reduce((pre, cur) => pre + cur, 0);
-
-    for (let i = 0; i < arr.length; i++) {
-      if ((sum - arr[i]) / 2 === leftNum) {
-        idx = i;
-        break;
-      } else {
-        leftNum += arr[i];
-      }
+    if ((sum - item) / 2 === newSum && idx === -1) {
+      idx = index
     }
+  })
 
-    return idx;
-  };
+  return idx
+}
 
-  console.log(fn2([-1, -1, 0, 0, -1, -1]));
-  console.log(fn);
+/**
+ * @description 改进版本 70ms
+ */
+const fn2 = (arr: number[]) => {
+  let idx = -1,
+    leftNum = 0
+  if (arr.length < 3) return idx
+
+  const sum = arr.reduce((pre, cur) => pre + cur, 0)
+
+  for (let i = 0; i < arr.length; i++) {
+    if ((sum - arr[i]) / 2 === leftNum) {
+      idx = i
+      break
+    } else {
+      leftNum += arr[i]
+    }
+  }
+
+  return idx
+}
+
+console.log(fn2([-1, -1, 0, 0, -1, -1]))
+console.log(fn)
 ```
 
-
 #### 数组至少是其他数两倍的最大数 leetcode - 747
-> 在一个给定的数组nums中，总是存在一个最大元素 。   
+
+> 在一个给定的数组 nums 中，总是存在一个最大元素 。  
 > 查找数组中的最大元素是否至少是数组中每个其他数字的两倍。  
 > 如果是，则返回最大元素的索引，否则返回-1。  
-> 输入: nums = [3, 6, 1, 0] 
-> 输出: 1   
-> 解释: 6是最大的整数, 对于数组中的其他整数,    
-> 6大于数组中其他元素的两倍。6的索引是1, 所以我们返回1.     
+> 输入: nums = [3, 6, 1, 0]
+> 输出: 1  
+> 解释: 6 是最大的整数, 对于数组中的其他整数,  
+> 6 大于数组中其他元素的两倍。6 的索引是 1, 所以我们返回 1.
+
 ```javascript
- const Basic: FC = () => {
+const Basic: FC = () => {
   /**
    * @description 数组自带方法
    * */
   const fn = (nums: number[]): number => {
-    if (nums.length === 0) return -1;
+    if (nums.length === 0) return -1
 
-    const max = Math.max.apply(null, nums);
-    const idx = nums.findIndex(item => item === max);
+    const max = Math.max.apply(null, nums)
+    const idx = nums.findIndex((item) => item === max)
     const flag = nums.every((item, index) => {
-      return idx === index ? true : max >= 2 * item;
-    });
-    return flag ? idx : -1;
-  };
+      return idx === index ? true : max >= 2 * item
+    })
+    return flag ? idx : -1
+  }
 
   /*
    * @description 原生求解
    * */
   const fn2 = (nums: number[]): number => {
-    if (nums.length === 0) return -1;
+    if (nums.length === 0) return -1
     let max = 0,
       secMax = 0,
-      idx = 0;
+      idx = 0
     for (let i = 0; i < nums.length; i++) {
       /** 交换值 */
       if (nums[i] > max) {
-        secMax = max;
-        max = nums[i];
-        idx = i;
+        secMax = max
+        max = nums[i]
+        idx = i
       } else if (nums[i] > secMax) {
-        secMax = nums[i];
+        secMax = nums[i]
       }
     }
 
-    return max >= 2 * secMax ? idx : -1;
-  };
+    return max >= 2 * secMax ? idx : -1
+  }
 
-  const result = fn2([0, 0, 2, 2]);
-  console.log(result);
-  console.log(fn);
+  const result = fn2([0, 0, 2, 2])
+  console.log(result)
+  console.log(fn)
 
-  return <Card>至少是其他数组两倍的最大树</Card>;
-};
+  return <Card>至少是其他数组两倍的最大树</Card>
+}
 ```
 
 #### 加一 leetcode-66
+
 ```javascript
 /**
  * @description 加一
@@ -179,74 +183,75 @@
 ```javascript
 const Basic: FC = () => {
   const fn = (nums: number[]): number[] => {
-    let isCarry = false;
+    let isCarry = false
 
     for (let i = nums.length - 1; i > -1; i--) {
       if (isCarry || i === nums.length - 1) {
-        nums[i] = nums[i] + 1;
+        nums[i] = nums[i] + 1
       }
 
       if (nums[i] === 10) {
-        isCarry = true;
-        nums[i] = 0;
+        isCarry = true
+        nums[i] = 0
       } else {
-        isCarry = false;
+        isCarry = false
       }
     }
 
-    if (isCarry) nums.unshift(1);
+    if (isCarry) nums.unshift(1)
 
-    return nums;
-  };
+    return nums
+  }
 
-  const result = fn([9]);
-  console.log(result);
+  const result = fn([9])
+  console.log(result)
 
-  return <>加一</>;
-};
+  return <>加一</>
+}
 ```
 
 #### 买卖股票的最佳时机
+
 ```javascript
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
 const Basic: FC = () => {
   // 完成多笔
   const fn = (nums: number[]): number => {
-    let count = 0;
+    let count = 0
 
     for (let i = 0; i < nums.length; i++) {
       if (nums[i + 1] >= nums[i]) {
-        count += nums[i + 1] - nums[i];
+        count += nums[i + 1] - nums[i]
       }
     }
 
-    return count;
-  };
+    return count
+  }
 
   // 完成一笔
   const singleMethod = (nums: number[]) => {
-    let minCount = nums[0];
-    let res = 0;
+    let minCount = nums[0]
+    let res = 0
 
     for (let i = 0; i < nums.length; i++) {
       if (nums[i] < minCount) {
-        minCount = nums[i];
+        minCount = nums[i]
       } else {
-        res = Math.max(res, nums[i] - minCount);
+        res = Math.max(res, nums[i] - minCount)
       }
     }
 
-    return res;
-  };
+    return res
+  }
 
   // 完成一笔 => 动态规划
   const dynamic = (nums: number) => {
-    let temp = 0;
-    let result = 0;
+    let temp = 0
+    let result = 0
 
     for (let i = 1; i < nums.length; i++) {
-      temp += nums[i] - nums[i - 1];
+      temp += nums[i] - nums[i - 1]
 
       /**
        * @desc
@@ -255,25 +260,25 @@ const Basic: FC = () => {
        *  如果累计到负数，其实没有意义。 temp重置为0，并且保留之前最大数result， 取新的一段 开始计算，
        * */
       if (temp < 0) {
-        temp = 0;
+        temp = 0
       }
 
       if (temp > result) {
-        result = temp;
+        result = temp
       }
     }
 
-    return result;
-  };
+    return result
+  }
 
-  console.log(fn([7, 1, 5, 3, 6, 4]));
-  console.log(singleMethod([7, 2, 5, 1, 4, 3, 6, 4]));
-  console.log(dynamic([7, 2, 5, 1, 4, 3, 6, 4]));
+  console.log(fn([7, 1, 5, 3, 6, 4]))
+  console.log(singleMethod([7, 2, 5, 1, 4, 3, 6, 4]))
+  console.log(dynamic([7, 2, 5, 1, 4, 3, 6, 4]))
 
-  return <>买卖股票的最佳时机</>;
-};
+  return <>买卖股票的最佳时机</>
+}
 
-export default Basic;
+export default Basic
 
 /**
  * @description 买卖股票的最佳时机
