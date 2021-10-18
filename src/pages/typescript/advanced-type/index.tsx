@@ -59,7 +59,8 @@ export type Mu = Mutable<Obj>
 type Deferred<T> = {
   [p in keyof T]: Promise<T[p]>
 }
-type De = Deferred<typeof objExamplate>
+
+export type De = Deferred<typeof objExamplate>
 
 const Basic: FC = () => {
   const name: La = true
@@ -68,12 +69,6 @@ const Basic: FC = () => {
     age: '20',
   }
   // objs.name = 'adsad'   readonly 后不能再继续赋值
-
-  const a: De = {
-    name: new Promise<string>((resolve) => resolve('levis')),
-  }
-
-  console.log(a)
 
   return (
     <Card>

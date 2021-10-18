@@ -21,18 +21,6 @@ const Base: FC<{}> = () => {
   /** any类型可以赋值任何数据类型 */
   // const anys: any = 'xxx';.
 
-  /** void 不返回任何数组 */
-  const fn = (): void => {
-    console.log('test void')
-  }
-
-  /** never一般用于报错 */
-  const fns = (): never => {
-    throw new Error('some erors')
-  }
-
-  console.log(fn, fns)
-
   /**
    * @description 类型断言
    * 1、根据现有的值推断该数据的类型

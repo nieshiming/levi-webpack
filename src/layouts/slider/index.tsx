@@ -18,6 +18,7 @@ const { SubMenu } = Menu
 const initState = {
   collapsed: false,
   targetKey: '',
+  openKeys: [],
 }
 
 const Title = styled.h2`
@@ -54,8 +55,20 @@ class Slider extends React.Component<Props, State> {
 
   /** 初始化菜单选项 */
   componentDidMount() {
+    const pathName = window.location.pathname
+
     this.setState({
-      targetKey: `${window.location.pathname}`,
+      targetKey: pathName,
+      openKeys: pathName
+        .split('/')
+        .slice(1, -1)
+        .map((item, index, arr) => {
+          if (index > 0) {
+            return `/${arr[index - 1]}/${item}`
+          }
+
+          return `/${item}`
+        }),
     })
   }
 
@@ -68,6 +81,11 @@ class Slider extends React.Component<Props, State> {
   }
 
   checkMenu = (e: ClickParam) => {
+    /** 一级菜单，关闭掉openKeys */
+    if (e.key.split('/').filter(Boolean).length === 1) {
+      this.setState({ openKeys: [] })
+    }
+
     /** 在这里面拦截做403操作 */
     this.setState(
       {
@@ -80,24 +98,25 @@ class Slider extends React.Component<Props, State> {
     )
   }
 
-  urlKeys = (): string[] => {
-    const result: string[] = []
-    let urlKeys = window.location.pathname.split('/')
-    urlKeys = urlKeys.filter((item, index) => index !== 0 && index !== urlKeys.length - 1)
-    urlKeys.forEach((item, index) => {
-      if (index > 0) {
-        result.push(`${result[index - 1]}/${item}`)
-
-        return
+  onOpenChange = (openKeys: string[] = []) => {
+    const urls = []
+    if (openKeys.length === 1 || openKeys.length === 0) {
+      urls.push(...openKeys)
+    } else {
+      for (let i = openKeys.length - 1; i > 0; i--) {
+        if (openKeys[i].includes(openKeys[i - 1])) {
+          urls.push(openKeys[i - 1], openKeys[i])
+        } else {
+          urls.push(openKeys[i])
+          break
+        }
       }
+    }
 
-      result.push(`/${item}`)
-    })
-    return result
+    this.setState({ openKeys: urls })
   }
 
   render() {
-    const defaultSelectedKeys = this.urlKeys()
     const { collapsed, targetKey } = this.state
 
     return (
@@ -109,11 +128,12 @@ class Slider extends React.Component<Props, State> {
           </Title>
         )}
         <Menu
-          defaultOpenKeys={defaultSelectedKeys}
-          selectedKeys={[`${targetKey}`]}
           mode="inline"
           theme="dark"
+          openKeys={this.state.openKeys}
+          selectedKeys={[`${targetKey}`]}
           onClick={this.checkMenu}
+          onOpenChange={this.onOpenChange}
         >
           {(menu || []).map((item) =>
             Array.isArray(item.children) ? (
