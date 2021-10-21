@@ -1,0 +1,35 @@
+{
+    "env": {
+      "targets": {
+        "chrome": "60"
+      },
+      "coreJs": 3,
+      "mode": "usage",
+      "loose": true,
+      "dynamicImport": true
+    },
+    "jsc": {
+      "parser": {
+        "syntax": "typescript",
+        "tsx": true,
+        "decorators": true,
+        "dynamicImport": true
+      },
+      "loose": true,
+      "transform": {
+          "legacyDecorator": true,
+          "decoratorMetadata": true,
+          "react": {
+            "pragma": "React.createElement",
+            "pragmaFrag": "React.Fragment",
+            "throwIfNamespace": true
+          }
+       }
+    },
+    "module":  {
+      "type": "es6"
+    },
+    "sourceMaps": false,
+    "inlineSourcesContent": false,
+    "minify": false
+  }

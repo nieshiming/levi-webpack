@@ -1319,6 +1319,18 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz#87de7af9c231826fdd68ac7258f77c429e0e5fcf"
   integrity sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==
 
+"@napi-rs/triples@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.npmmirror.com/@napi-rs/triples/download/@napi-rs/triples-1.0.3.tgz#76d6d0c3f4d16013c61e45dfca5ff1e6c31ae53c"
+  integrity sha1-dtbQw/TRYBPGHkXfyl/x5sMa5Tw=
+
+"@node-rs/helper@^1.0.0":
+  version "1.2.1"
+  resolved "https://registry.npmmirror.com/@node-rs/helper/download/@node-rs/helper-1.2.1.tgz#e079b05f21ff4329d82c4e1f71c0290e4ecdc70c"
+  integrity sha1-4HmwXyH/QynYLE4fccApDk7Nxww=
+  dependencies:
+    "@napi-rs/triples" "^1.0.3"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -1356,6 +1368,90 @@
   version "1.0.0-next.15"
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.15.tgz#6a9d143f7f4f49db2d782f9e1c8839a29b43ae23"
   integrity sha512-15spi3V28QdevleWBNXE4pIls3nFZmBbUGrW9IVPwiQczuSb9n76TCB4bsk8TSel+I1OkHEdPhu5QKMfY6rQHA==
+
+"@swc/cli@^0.1.51":
+  version "0.1.51"
+  resolved "https://registry.npmmirror.com/@swc/cli/download/@swc/cli-0.1.51.tgz#720f2d966446558011085c2a40a65fd9079d06a1"
+  integrity sha1-cg8tlmRGVYARCFwqQKZf2QedBqE=
+  dependencies:
+    commander "^7.1.0"
+    fast-glob "^3.2.5"
+    slash "3.0.0"
+    source-map "^0.7.3"
+
+"@swc/core-android-arm64@1.2.102":
+  version "1.2.102"
+  resolved "https://registry.npmmirror.com/@swc/core-android-arm64/download/@swc/core-android-arm64-1.2.102.tgz#972a47217053cc759f0bc0308a508279de1247ba"
+  integrity sha1-lypHIXBTzHWfC8AwilCCed4SR7o=
+
+"@swc/core-darwin-arm64@1.2.102":
+  version "1.2.102"
+  resolved "https://registry.npmmirror.com/@swc/core-darwin-arm64/download/@swc/core-darwin-arm64-1.2.102.tgz#1795a4080d1060ca8ac52f218cc4c64b73a7ef06"
+  integrity sha1-F5WkCA0QYMqKxS8hjMTGS3On7wY=
+
+"@swc/core-darwin-x64@1.2.102":
+  version "1.2.102"
+  resolved "https://registry.npmmirror.com/@swc/core-darwin-x64/download/@swc/core-darwin-x64-1.2.102.tgz#f48ab5b8b56798d36acd38838c62eb0be4af3c4b"
+  integrity sha1-9Iq1uLVnmNNqzTiDjGLrC+SvPEs=
+
+"@swc/core-linux-arm-gnueabihf@1.2.102":
+  version "1.2.102"
+  resolved "https://registry.npmmirror.com/@swc/core-linux-arm-gnueabihf/download/@swc/core-linux-arm-gnueabihf-1.2.102.tgz#a617cea4f5a2ff1aac9f668da12dd7a6a0a6700d"
+  integrity sha1-phfOpPWi/xqsn2aNoS3XpqCmcA0=
+
+"@swc/core-linux-arm64-gnu@1.2.102":
+  version "1.2.102"
+  resolved "https://registry.npmmirror.com/@swc/core-linux-arm64-gnu/download/@swc/core-linux-arm64-gnu-1.2.102.tgz#0abccb26af51783be141dea8b7af0baa0dcc55b4"
+  integrity sha1-CrzLJq9ReDvhQd6ot68Lqg3MVbQ=
+
+"@swc/core-linux-arm64-musl@1.2.102":
+  version "1.2.102"
+  resolved "https://registry.npmmirror.com/@swc/core-linux-arm64-musl/download/@swc/core-linux-arm64-musl-1.2.102.tgz#ab079233626a355995b8e25e3666a759edffe1c5"
+  integrity sha1-qweSM2JqNVmVuOJeNmanWe3/4cU=
+
+"@swc/core-linux-x64-gnu@1.2.102":
+  version "1.2.102"
+  resolved "https://registry.npmmirror.com/@swc/core-linux-x64-gnu/download/@swc/core-linux-x64-gnu-1.2.102.tgz#6336698ffae22a491e782cb9ab7478130ceb2240"
+  integrity sha1-YzZpj/riKkkeeCy5q3R4EwzrIkA=
+
+"@swc/core-linux-x64-musl@1.2.102":
+  version "1.2.102"
+  resolved "https://registry.npmmirror.com/@swc/core-linux-x64-musl/download/@swc/core-linux-x64-musl-1.2.102.tgz#b9f557dd53647318ac6dd832f174efe8e7386e1a"
+  integrity sha1-ufVX3VNkcxisbdgy8XTv6Oc4bho=
+
+"@swc/core-win32-arm64-msvc@1.2.102":
+  version "1.2.102"
+  resolved "https://registry.npmmirror.com/@swc/core-win32-arm64-msvc/download/@swc/core-win32-arm64-msvc-1.2.102.tgz#e7c7958f0c2adb1e83a375e0d8d6af673e53150d"
+  integrity sha1-58eVjwwq2x6Do3Xg2NavZz5TFQ0=
+
+"@swc/core-win32-ia32-msvc@1.2.102":
+  version "1.2.102"
+  resolved "https://registry.npmmirror.com/@swc/core-win32-ia32-msvc/download/@swc/core-win32-ia32-msvc-1.2.102.tgz#f14c93ac0c8b2ec03a8d5438b86551d962da4b0c"
+  integrity sha1-8UyTrAyLLsA6jVQ4uGVR2WLaSww=
+
+"@swc/core-win32-x64-msvc@1.2.102":
+  version "1.2.102"
+  resolved "https://registry.npmmirror.com/@swc/core-win32-x64-msvc/download/@swc/core-win32-x64-msvc-1.2.102.tgz#e3cbbb58d99174b7b7d9c1c58467491d31dca269"
+  integrity sha1-48u7WNmRdLe32cHFhGdJHTHcomk=
+
+"@swc/core@^1.2.102":
+  version "1.2.102"
+  resolved "https://registry.npmmirror.com/@swc/core/download/@swc/core-1.2.102.tgz#c71fd22941fa9b7b3c52c778d494ab57beef2c17"
+  integrity sha1-xx/SKUH6m3s8Usd41JSrV77vLBc=
+  dependencies:
+    "@node-rs/helper" "^1.0.0"
+  optionalDependencies:
+    "@swc/core-android-arm64" "1.2.102"
+    "@swc/core-darwin-arm64" "1.2.102"
+    "@swc/core-darwin-x64" "1.2.102"
+    "@swc/core-linux-arm-gnueabihf" "1.2.102"
+    "@swc/core-linux-arm64-gnu" "1.2.102"
+    "@swc/core-linux-arm64-musl" "1.2.102"
+    "@swc/core-linux-x64-gnu" "1.2.102"
+    "@swc/core-linux-x64-musl" "1.2.102"
+    "@swc/core-win32-arm64-msvc" "1.2.102"
+    "@swc/core-win32-ia32-msvc" "1.2.102"
+    "@swc/core-win32-x64-msvc" "1.2.102"
 
 "@trysound/sax@0.1.1":
   version "0.1.1"
@@ -2779,6 +2875,11 @@ core-js-pure@^3.16.0:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.16.1.tgz#b997df2669c957a5b29f06e95813a171f993592e"
   integrity sha512-TyofCdMzx0KMhi84mVRS8rL1XsRk2SPUNz2azmth53iRN0/08Uim9fdhQTaZTG1LqaXHYVci4RDHka6WrXfnvg==
 
+core-js@^3.18.3:
+  version "3.18.3"
+  resolved "https://registry.npmmirror.com/core-js/download/core-js-3.18.3.tgz?cache=0&sync_timestamp=1634062711478&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcore-js%2Fdownload%2Fcore-js-3.18.3.tgz#86a0bba2d8ec3df860fefcc07a8d119779f01509"
+  integrity sha1-hqC7otjsPfhg/vzAeo0Rl3nwFQk=
+
 core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
@@ -2837,10 +2938,10 @@ css-declaration-sorter@^6.0.3:
   dependencies:
     timsort "^0.3.0"
 
-css-loader@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-6.2.0.tgz#9663d9443841de957a3cb9bcea2eda65b3377071"
-  integrity sha512-/rvHfYRjIpymZblf49w8jYcRo2y9gj6rV8UroHGmBxKrIyGLokpycyKzp9OkitvqT29ZSpzJ0Ic7SpnJX3sC8g==
+css-loader@^6.4.0:
+  version "6.4.0"
+  resolved "https://registry.npmmirror.com/css-loader/download/css-loader-6.4.0.tgz?cache=0&sync_timestamp=1633783703503&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcss-loader%2Fdownload%2Fcss-loader-6.4.0.tgz#01c57ea776024e18ca193428dcad3ff6b42a0130"
+  integrity sha1-AcV+p3YCThjKGTQo3K0/9rQqATA=
   dependencies:
     icss-utils "^5.1.0"
     postcss "^8.2.15"
@@ -3907,7 +4008,7 @@ fast-diff@^1.1.2:
   resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.2.0.tgz#73ee11982d86caaf7959828d519cfe927fac5f03"
   integrity sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
 
-fast-glob@^3.1.1:
+fast-glob@^3.1.1, fast-glob@^3.2.5:
   version "3.2.7"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.7.tgz#fd6cb7a2d7e9aa7a7846111e85a196d6b2f766a1"
   integrity sha512-rYGMRwip6lUMvYD3BTScMwT1HtAs2d71SMv66Vrxs0IekGZEjhM0pcMfjQPnknBt2zeCwQMEupiN02ZP4DiT1Q==
@@ -7627,7 +7728,7 @@ sirv@^1.0.7:
     mime "^2.3.1"
     totalist "^1.0.0"
 
-slash@^3.0.0:
+slash@3.0.0, slash@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
@@ -7992,10 +8093,10 @@ strip-json-comments@^3.1.0, strip-json-comments@^3.1.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.1.1.tgz#31f1281b3832630434831c310c01cccda8cbe006"
   integrity sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==
 
-style-loader@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-3.2.1.tgz#63cb920ec145c8669e9a50e92961452a1ef5dcde"
-  integrity sha512-1k9ZosJCRFaRbY6hH49JFlRB0fVSbmnyq1iTPjNxUmGVjBNEmwrrHPenhlp+Lgo51BojHSf6pl2FcqYaN3PfVg==
+style-loader@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.npmmirror.com/style-loader/download/style-loader-3.3.0.tgz#d66ea95fc50b22f8b79b69a9e414760fcf58d8d8"
+  integrity sha1-1m6pX8ULIvi3m2mp5BR2D89Y2Ng=
 
 styled-components@^5.3.1:
   version "5.3.1"
@@ -8066,6 +8167,13 @@ svgo@^2.3.0:
     css-tree "^1.1.2"
     csso "^4.2.0"
     stable "^0.1.8"
+
+swc-loader@^0.1.15:
+  version "0.1.15"
+  resolved "https://registry.npmmirror.com/swc-loader/download/swc-loader-0.1.15.tgz#cb9c630ccfbb46dabc5aebc5560cced658e32992"
+  integrity sha1-y5xjDM+7Rtq8WuvFVgzO1ljjKZI=
+  dependencies:
+    loader-utils "^2.0.0"
 
 table@^6.0.9:
   version "6.7.1"

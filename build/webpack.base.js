@@ -73,6 +73,7 @@ module.exports = {
                 cacheDirectory: true,
               },
             },
+            // 'swc-loader',
             'eslint-loader',
           ],
           exclude: /node_modules/,
