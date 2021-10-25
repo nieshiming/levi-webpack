@@ -1,7 +1,7 @@
 {
     "env": {
       "targets": {
-        "chrome": "60"
+        "chrome": "55"
       },
       "coreJs": 3,
       "mode": "usage",
@@ -27,7 +27,7 @@
        }
     },
     "module":  {
-      "type": "es6"
+      "type": "commonjs"
     },
     "sourceMaps": false,
     "inlineSourcesContent": false,

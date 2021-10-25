@@ -23,7 +23,7 @@ module.exports = merge(config.base, {
     minimize: true,
     minimizer: [
       new ESBuildMinifyPlugin({
-        target: 'es2015',
+        target: 'esnext',
       }),
       new CssMinimizerPlugin(),
     ],
