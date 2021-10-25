@@ -83,7 +83,7 @@ module.exports = {
     },
     plugins: [
       new WebpackBar({
-        name: 'levi-Webpack',
+        name: 'Levi-Webpack',
       }),
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
