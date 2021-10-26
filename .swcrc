@@ -1,8 +1,5 @@
 {
     "env": {
-      "targets": {
-        "chrome": "55"
-      },
       "coreJs": 3,
       "mode": "usage",
       "loose": true,
