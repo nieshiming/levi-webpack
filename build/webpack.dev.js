@@ -13,18 +13,16 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const { SERVER_ENV, PORT, HOST } = process.env
 
 module.exports = merge(config.base, {
+  stats: 'errors-only',
   mode: 'development',
   devtool: 'cheap-module-source-map',
   cache: true,
   devServer: {
     host: HOST,
     port: PORT,
-    hot: true,
-    quiet: true,
     compress: true,
     historyApiFallback: true,
-    contentBase: config.resolvePath('../dist'),
-    stats: 'minimal',
+    static: config.resolvePath('../dist'),
   },
   module: {
     rules: [],
@@ -42,7 +40,6 @@ module.exports = merge(config.base, {
       context: config.resolvePath('../src'),
     }),
     new ReactRefreshWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
         messages: [

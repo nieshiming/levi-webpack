@@ -50,7 +50,7 @@
     "@babel/preset-typescript": "^7.15.0",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
     "@swc/cli": "^0.1.51",
     "@swc/core": "^1.2.102",
     "@types/react": "^17.0.18",
@@ -98,7 +98,7 @@
     "webpack": "^5.51.1",
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2",
+    "webpack-dev-server": "^4.1.1",
     "webpack-merge": "^5.8.0",
     "webpackbar": "^5.0.0-3"
   },
