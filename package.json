@@ -1,7 +1,7 @@
 {
   "name": "ahs_webpack4",
   "version": "1.0.0",
-  "description": "webpack4",
+  "description": "webpack5",
   "author": "levi",
   "scripts": {
     "server": "http-server dist",
