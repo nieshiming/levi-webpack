@@ -67,12 +67,7 @@ module.exports = {
           use: [
             'thread-loader',
             'cache-loader',
-            {
-              loader: 'babel-loader',
-              options: {
-                cacheDirectory: true,
-              },
-            },
+            'babel-loader',
             // 'swc-loader',
             'eslint-loader',
           ],

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[729],{31891:function(_,t,u){u.r(t);var a=u(60050),n=u(48767),s=u(27378),e=function(){return s.createElement(n.ZP,{status:"404",title:"404",subTitle:"\u627E\u4E0D\u5230\u8DEF\u5F84, \u8BF7\u786E\u8BA4\u8DEF\u5F84\u54E6."})};E=e,t.default=e;var E;$RefreshReg$(E,"Index")}}]);
