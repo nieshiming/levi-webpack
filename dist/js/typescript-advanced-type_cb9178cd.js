@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[360],{39647:function(u,n,_){_.r(n);var c=_(67484),e=_(58836),t=_(24441),l=_.n(t),a=_(27378),o={name:"levi"},s=function(){var E=!0,r={name:"levis",age:"20"};return a.createElement(e.Z,null,a.createElement("h4",null,"\u9AD8\u7EA7\u7C7B\u578B ","".concat(E)),a.createElement("h4",null,l()(r)))};n.default=s}}]);
