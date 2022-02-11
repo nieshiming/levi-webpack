@@ -32,6 +32,20 @@ module.exports = {
     module: {
       rules: [
         {
+          test: /\.css$/i,
+          include: resolvePath('../src'),
+          use: [
+            BABEL_ENV === 'production'
+              ? {
+                  loader: MiniCssExtractPlugin.loader,
+                  options: { publicPath: './' },
+                }
+              : 'style-loader',
+            'css-loader',
+            'postcss-loader',
+          ],
+        },
+        {
           test: /\.less$/i,
           use: [
             BABEL_ENV === 'production'

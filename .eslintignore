@@ -5,3 +5,5 @@
 babel.config.js
 .eslintrc.js
 commitlint.config.js
+postcss.config.js
+tailwind.config.js
