@@ -14,8 +14,8 @@ export const typescriptRoutes: Array<Route> = [
   },
   {
     name: '泛型',
-    path: '/typescript/generic',
-    component: lazy(() => import(/* webpackChunkName: 'typescript-generic' */ '@/pages/typescript/generic')),
+    path: '/typescript/generics',
+    component: lazy(() => import(/* webpackChunkName: 'typescript-generics' */ '@/pages/typescript/generics')),
   },
   {
     name: '高级类型',

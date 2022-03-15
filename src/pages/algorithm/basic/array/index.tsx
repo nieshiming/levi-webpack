@@ -13,7 +13,7 @@ import Nine from './9'
 import Ten from './10'
 
 const tabArr = [
-  { tab: <One />, title: '数组去重' },
+  { tab: <One />, title: '从排序数组中删除重复项' },
   { tab: <Two />, title: '寻找中心索引' },
   { tab: <Three />, title: '至少是其他数字两倍的最大数' },
   { tab: <Four />, title: '加一' },
@@ -28,7 +28,7 @@ const { TabPane } = Tabs
 
 const basic: FC = () => (
   <Card>
-    <Tabs defaultActiveKey="5">
+    <Tabs defaultActiveKey="1" tabPosition="left">
       {tabArr.map((item, index) => (
         <TabPane tab={item.title} key={`${index + 1}`}>
           {item.tab}

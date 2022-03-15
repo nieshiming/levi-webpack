@@ -13,7 +13,7 @@ export const typescriptMenu = {
     },
     {
       name: '泛型',
-      path: '/typescript/generic',
+      path: '/typescript/generics',
     },
     {
       name: '高级类型',
