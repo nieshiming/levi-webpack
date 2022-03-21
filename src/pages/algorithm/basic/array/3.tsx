@@ -40,7 +40,7 @@ const Basic: FC = () => {
   console.log(result)
   console.log(fn)
 
-  return <Card>至少是其他数组两倍的最大树</Card>
+  return <Card>至少是其他数组两倍的最大数</Card>
 }
 
 export default Basic

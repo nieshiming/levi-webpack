@@ -1,33 +1,39 @@
+/* eslint-disable no-param-reassign */
+import { Button } from 'antd'
 import React, { FC } from 'react'
 
 const Basic: FC = () => {
-  const fn = (arr: number[]): number[] => {
-    const nums = arr
+  const fn = (digits: number[]): number[] => {
+    let l = digits.length - 1
+    digits[l] += 1
 
-    let isCarry = false
+    while (l >= 0) {
+      if (digits[l] > 9) {
+        digits[l] = 0
 
-    for (let i = nums.length - 1; i > -1; i--) {
-      if (isCarry || i === nums.length - 1) {
-        nums[i] += 1
+        if (l === 0) {
+          digits.unshift(1)
+        } else {
+          digits[l - 1] += 1
+        }
       }
-
-      if (nums[i] === 10) {
-        isCarry = true
-        nums[i] = 0
-      } else {
-        isCarry = false
-      }
+      l--
     }
 
-    if (isCarry) nums.unshift(1)
-
-    return nums
+    return digits
   }
 
-  const result = fn([9])
-  console.log(result)
+  console.log(fn([9, 9, 9]))
 
-  return <>加一</>
+  return (
+    <Button
+      type="link"
+      target="_blank"
+      href="https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2cv1c/"
+    >
+      链接
+    </Button>
+  )
 }
 
 export default Basic

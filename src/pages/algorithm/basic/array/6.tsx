@@ -1,3 +1,4 @@
+import { Button } from 'antd'
 import React, { FC } from 'react'
 
 const Basic: FC = () => {
@@ -60,7 +61,15 @@ const Basic: FC = () => {
   console.log(singleMethod([7, 2, 5, 1, 4, 3, 6, 4]))
   console.log(dynamic([7, 2, 5, 1, 4, 3, 6, 4]))
 
-  return <>买卖股票的最佳时机</>
+  return (
+    <Button
+      type="link"
+      target="_blank"
+      href="https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2zsx1/"
+    >
+      链接
+    </Button>
+  )
 }
 
 export default Basic

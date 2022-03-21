@@ -1,24 +1,44 @@
+import { Button } from 'antd'
 import React, { FC } from 'react'
 
 const Basic: FC = () => {
   const fn = (nums: number[]): boolean => nums.length !== new Set(nums).size
 
   const fn2 = (nums: number[]): boolean => {
-    const selectArr: number[] = []
-
     for (let i = 0; i < nums.length; i++) {
-      if (selectArr.includes(nums[i])) {
+      if (nums.lastIndexOf(nums[i]) !== i) {
         return true
       }
-      selectArr.push(nums[i])
     }
 
-    console.log(fn)
     return false
   }
 
+  const fn3 = (nums: number[]): boolean => {
+    for (let i = 0; i < nums.length; i++) {
+      for (let j = 0; j < nums.length; j++) {
+        if (i !== j && nums[i] === nums[j]) {
+          return true
+        }
+      }
+    }
+
+    return false
+  }
+
+  console.log(fn([1, 2, 3, 1]))
   console.log(fn2([1, 2, 3, 1]))
-  return <>存在重复元素</>
+  console.log(fn3([1, 2, 3, 1]))
+
+  return (
+    <Button
+      type="link"
+      target="_blank"
+      href="https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x248f5/"
+    >
+      链接
+    </Button>
+  )
 }
 
 export default Basic

@@ -33,11 +33,14 @@ export default () => {
     let len = 1
     for (let i = 1; i < nums.length; i++) {
       if (nums[i] !== nums[i - 1]) {
-        /** 相当于执行  nums[len] = nums[i] len++ */
+        /**
+         *
+         * 相当于执行  nums[len] = nums[i];
+         *           len++;
+         */
         nums[len++] = nums[i]
       }
     }
-
     return len
   }
 
@@ -46,7 +49,11 @@ export default () => {
   console.log(dataSource, res, result)
 
   return (
-    <Button type="link" href="https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2gy9m/">
+    <Button
+      type="link"
+      target="_blank"
+      href="https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2gy9m/"
+    >
       链接
     </Button>
   )

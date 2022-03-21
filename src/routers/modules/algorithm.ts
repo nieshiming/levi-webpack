@@ -4,7 +4,7 @@ import { Route } from '../interface'
 export const algorithmRoutes: Array<Route> = [
   {
     name: 'array',
-    path: '/algorithm/array/base',
+    path: '/algorithm/base/array',
     component: lazy(() => import(/* webpackChunkName: 'algorithm-array' */ '@/pages/algorithm/basic/array')),
   },
 ]

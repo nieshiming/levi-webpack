@@ -4,12 +4,12 @@ export const algorithmMenu = {
   path: '/algorithm',
   children: [
     {
-      name: 'array',
-      path: '/algorithm/array',
+      name: 'base',
+      path: '/algorithm/base',
       children: [
         {
-          name: 'base',
-          path: '/algorithm/array/base',
+          name: 'array',
+          path: '/algorithm/base/array',
         },
       ],
     },

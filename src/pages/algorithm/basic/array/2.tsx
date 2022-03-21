@@ -1,3 +1,4 @@
+import { Button } from 'antd'
 import React, { FC } from 'react'
 
 const basic: FC = () => {
@@ -48,7 +49,11 @@ const basic: FC = () => {
   console.log(fn2([-1, -1, 0, 0, -1, -1]))
   console.log(fn)
 
-  return <>寻找中心索引</>
+  return (
+    <Button href="https://leetcode-cn.com/problems/find-pivot-index/" type="link" target="_blank">
+      链接
+    </Button>
+  )
 }
 
 export default basic
