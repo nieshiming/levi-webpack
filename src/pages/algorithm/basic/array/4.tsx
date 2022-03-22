@@ -31,7 +31,7 @@ const Basic: FC = () => {
       target="_blank"
       href="https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2cv1c/"
     >
-      链接
+      加一
     </Button>
   )
 }

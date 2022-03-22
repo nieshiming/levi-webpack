@@ -67,7 +67,7 @@ const Basic: FC = () => {
       target="_blank"
       href="https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2zsx1/"
     >
-      链接
+      买卖股票的最佳时机
     </Button>
   )
 }

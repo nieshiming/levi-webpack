@@ -36,7 +36,7 @@ const Basic: FC = () => {
       target="_blank"
       href="https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x248f5/"
     >
-      链接
+      存在重复
     </Button>
   )
 }

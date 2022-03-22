@@ -36,9 +36,9 @@ const Basic: FC = () => {
     return max >= 2 * secMax ? idx : -1
   }
 
+  const res = fn([0, 0, 2, 2])
   const result = fn2([0, 0, 2, 2])
-  console.log(result)
-  console.log(fn)
+  console.log(res, result)
 
   return <Card>至少是其他数组两倍的最大数</Card>
 }

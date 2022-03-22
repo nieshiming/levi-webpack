@@ -11,6 +11,7 @@ import Seven from './7'
 import Eight from './8'
 import Nine from './9'
 import Ten from './10'
+import TopInterviewQuestionsEasy from './top-interview-questions-easy'
 
 const tabArr = [
   { tab: <One />, title: '从排序数组中删除重复项' },
@@ -22,13 +23,14 @@ const tabArr = [
   { tab: <Two />, title: '寻找中心索引' },
   { tab: <Three />, title: '至少是其他数字两倍的最大数' },
   { tab: <Ten />, title: '打平数组' },
+  { tab: <TopInterviewQuestionsEasy />, title: '两个数组的交集 II' },
 ]
 
 const { TabPane } = Tabs
 
 const basic: FC = () => (
   <Card>
-    <Tabs defaultActiveKey="7" tabPosition="left">
+    <Tabs defaultActiveKey="10" tabPosition="left">
       {tabArr.map((item, index) => (
         <TabPane tab={item.title} key={`${index + 1}`}>
           {item.tab}

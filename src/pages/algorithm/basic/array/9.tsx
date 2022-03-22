@@ -23,7 +23,7 @@ const Baisc: FC = () => {
       target="_blank"
       href="https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x21ib6/"
     >
-      链接
+      只出现一次的数字
     </Button>
   )
 }

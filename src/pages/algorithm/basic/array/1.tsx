@@ -54,7 +54,7 @@ export default () => {
       target="_blank"
       href="https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2gy9m/"
     >
-      链接
+      从排序数组中删除重复项
     </Button>
   )
 }

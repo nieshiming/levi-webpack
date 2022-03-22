@@ -20,7 +20,7 @@ const Basic: FC = () => {
       target="_blank"
       href="https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2skh7/"
     >
-      链接
+      旋转数组
     </Button>
   )
 }
