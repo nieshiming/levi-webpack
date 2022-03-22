@@ -11,6 +11,10 @@ export const algorithmMenu = {
           name: 'array',
           path: '/algorithm/base/array',
         },
+        {
+          name: 'string',
+          path: '/algorithm/base/string',
+        },
       ],
     },
   ],

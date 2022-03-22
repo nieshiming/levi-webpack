@@ -11,7 +11,9 @@ import Seven from './7'
 import Eight from './8'
 import Nine from './9'
 import Ten from './10'
-import TopInterviewQuestionsEasy from './top-interview-questions-easy'
+import Levi11 from './11'
+import Levi12 from './12'
+import Levi13 from './13'
 
 const tabArr = [
   { tab: <One />, title: '从排序数组中删除重复项' },
@@ -23,7 +25,9 @@ const tabArr = [
   { tab: <Two />, title: '寻找中心索引' },
   { tab: <Three />, title: '至少是其他数字两倍的最大数' },
   { tab: <Ten />, title: '打平数组' },
-  { tab: <TopInterviewQuestionsEasy />, title: '两个数组的交集 II' },
+  { tab: <Levi11 />, title: '两个数组的交集 II' },
+  { tab: <Levi12 />, title: '两数之和' },
+  { tab: <Levi13 />, title: '移动零' },
 ]
 
 const { TabPane } = Tabs
