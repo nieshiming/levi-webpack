@@ -15,6 +15,10 @@ export const algorithmMenu = {
           name: 'string',
           path: '/algorithm/base/string',
         },
+        {
+          name: 'linkedList',
+          path: '/algorithm/base/linkedList',
+        },
       ],
     },
   ],

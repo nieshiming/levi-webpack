@@ -12,4 +12,9 @@ export const algorithmRoutes: Array<Route> = [
     path: '/algorithm/base/string',
     component: lazy(() => import(/* webpackChunkName: 'algorithm-string' */ '@/pages/algorithm/basic/string')),
   },
+  {
+    name: 'array',
+    path: '/algorithm/base/linkedList',
+    component: lazy(() => import(/* webpackChunkName: 'algorithm-linkedList' */ '@/pages/algorithm/basic/lind-list')),
+  },
 ]
