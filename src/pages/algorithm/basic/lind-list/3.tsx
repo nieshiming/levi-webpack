@@ -30,7 +30,20 @@ const Basic = () => {
     return newHead
   }
 
-  console.log(reverseList)
+  // 依次取出链表首尾元素，后续每次取元素， 当前头节点next指向原来链表prev。 然后交换prev 和新的head
+  const reverseList2 = (head) => {
+    let prev = null
+    while (head) {
+      const nextNode = head.next
+      head.next = prev
+      prev = head
+      head = nextNode
+    }
+
+    return prev
+  }
+
+  console.log(reverseList, reverseList2)
 
   return (
     <Button
