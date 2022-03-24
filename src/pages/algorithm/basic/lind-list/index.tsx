@@ -6,6 +6,7 @@ import Levi2 from './2'
 import Levi3 from './3'
 import Levi4 from './4'
 import Levi5 from './5'
+import Levi6 from './6'
 
 const tabArr = [
   { tab: <Levi1 />, title: '删除链表中的节点' },
@@ -13,6 +14,7 @@ const tabArr = [
   { tab: <Levi3 />, title: '反转链表' },
   { tab: <Levi4 />, title: '合并两个有序链表' },
   { tab: <Levi5 />, title: '回文链表' },
+  { tab: <Levi6 />, title: '环形链表' },
 ]
 
 const { TabPane } = Tabs
