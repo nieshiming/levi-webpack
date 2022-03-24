@@ -17,4 +17,9 @@ export const algorithmRoutes: Array<Route> = [
     path: '/algorithm/base/linkedList',
     component: lazy(() => import(/* webpackChunkName: 'algorithm-linkedList' */ '@/pages/algorithm/basic/lind-list')),
   },
+  {
+    name: 'array',
+    path: '/algorithm/base/tree',
+    component: lazy(() => import(/* webpackChunkName: 'algorithm-tree' */ '@/pages/algorithm/basic/tree')),
+  },
 ]
