@@ -1,28 +1,25 @@
-/* eslint-disable prefer-destructuring */
 /* eslint-disable no-param-reassign */
 import React from 'react'
 import { Button } from 'antd'
 
 const Basic = () => {
-  // 循坏遍历
-  const fn = (strArr: string[]) => {
-    // 双指针
-    let left = 0
-    let right = strArr.length - 1
-    while (left < right) {
-      const temp = strArr[right]
-      strArr[right] = strArr[left]
-      strArr[left] = temp
-
-      left++
-      right--
-    }
-
-    console.log(strArr)
-    return strArr
+  /**
+   * Definition for singly-linked list.
+   * function ListNode(val) {
+   *     this.val = val;
+   *     this.next = null;
+   * }
+   */
+  /**
+   * @param {ListNode} node
+   * @return {void} Do not return anything, modify node in-place instead.
+   */
+  const deleteNode = (node) => {
+    node.val = node.next.val
+    node.next = node.next.next
   }
 
-  fn(['h', 'e', 'l', 'l', 'o'])
+  console.log(deleteNode)
 
   return (
     <Button
