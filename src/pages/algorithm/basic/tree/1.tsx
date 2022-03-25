@@ -33,10 +33,9 @@ const Basic = () => {
     while (nodeList.length) {
       count++
 
-      // 拿到当前层
+      // 拿到当前层, 计算每层的次数
       let size = nodeList.length
 
-      // 计算每层的次数
       while (size) {
         const node = nodeList.pop()
         if (node.left) {
