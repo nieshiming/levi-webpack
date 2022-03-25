@@ -33,7 +33,7 @@ const Basic = () => {
     while (nodeList.length) {
       count++
 
-      // 拿到当前层, 计算每层的次数
+      // 拿到当前层, 计算每层的次数,遍历完
       let size = nodeList.length
 
       while (size) {

@@ -3,7 +3,7 @@ import { Button } from 'antd'
 
 const Basic = () => {
   /**
-   * @description 广度优先遍历，分层比较
+   * @description 广度优先遍历，分层比较。 更加优雅
    * */
   const isSymmetric = (root) => {
     if (!root) {

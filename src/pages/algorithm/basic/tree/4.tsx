@@ -2,56 +2,61 @@ import React from 'react'
 import { Button } from 'antd'
 
 const Basic = () => {
-  const isSymmetric = (root) => {
+  // 深度优先遍历 ，先序遍历
+  const levelOrder = (root) => {
     if (!root) {
-      return true
+      return []
+    }
+    const resultArr = []
+    const deep = (node, level) => {
+      if (!node) {
+        return
+      }
+
+      if (!resultArr[level]) {
+        resultArr[level] = []
+      }
+
+      resultArr[level].push(node.val)
+      deep(node.left, level + 1)
+      deep(node.right, level + 1)
+    }
+
+    deep(root, 0)
+    return resultArr
+  }
+
+  // 广度优先遍历
+  const levelOrder2 = (root) => {
+    if (!root) {
+      return []
     }
 
     const arr = []
-    arr.push([root.left, root.right])
+    const nodeList = [root]
 
-    while (arr.length) {
-      const [left, right] = arr.pop()
-      if (!left && !right) {
-        // eslint-disable-next-line no-continue
-        continue
-      }
-      if (!left || !right || left.val !== right.val) {
-        return false
-      }
+    while (nodeList.length) {
+      const res = []
+      let size = nodeList.length
+      while (size) {
+        const node = nodeList.pop()
+        res.push(node.val)
+        if (node.left) {
+          nodeList.unshift(node.left)
+        }
 
-      arr.unshift([left.left, right.right])
-      arr.unshift([left.right, right.left])
+        if (node.right) {
+          nodeList.unshift(node.right)
+        }
+        size--
+      }
+      arr.push(res)
     }
 
-    return true
+    return arr
   }
 
-  const isSymmetric2 = (root) => {
-    if (!root) {
-      return true
-    }
-
-    const deep = (nodeLeft, nodeRight) => {
-      // 比较当前左右节点值， 如果都不存在，则表示无子节点，直接返回true
-      if (!nodeLeft && !nodeRight) {
-        return true
-      }
-
-      // 判断左右节点值是否相等
-      if (!nodeLeft || !nodeRight || nodeLeft.val !== nodeRight.val) {
-        return false
-      }
-
-      return deep(nodeLeft.left, nodeRight.right) && deep(nodeLeft.right, nodeRight.left)
-    }
-
-    return deep(root.left, root.right)
-
-    return true
-  }
-
-  console.log(isSymmetric, isSymmetric2)
+  console.log(levelOrder, levelOrder2)
 
   return (
     <Button
