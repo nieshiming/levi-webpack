@@ -6,6 +6,7 @@ import Levi1 from './1'
 import Levi2 from './2'
 import Levi3 from './3'
 import Levi4 from './4'
+import Levi5 from './5'
 
 const tabArr = [
   { tab: <Levi0 />, title: '二叉树遍历（深度优先遍历 && 广度优先遍历）' },
@@ -13,6 +14,7 @@ const tabArr = [
   { tab: <Levi2 />, title: '验证二叉搜索树' },
   { tab: <Levi3 />, title: '对称二叉树' },
   { tab: <Levi4 />, title: '二叉树的层序遍历' },
+  { tab: <Levi5 />, title: '将有序数组转换为二叉搜索树' },
 ]
 
 const { TabPane } = Tabs
