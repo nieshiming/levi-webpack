@@ -22,4 +22,9 @@ export const algorithmRoutes: Array<Route> = [
     path: '/algorithm/base/tree',
     component: lazy(() => import(/* webpackChunkName: 'algorithm-tree' */ '@/pages/algorithm/basic/tree')),
   },
+  {
+    name: 'array',
+    path: '/algorithm/base/other',
+    component: lazy(() => import(/* webpackChunkName: 'algorithm-other' */ '@/pages/algorithm/basic/other')),
+  },
 ]

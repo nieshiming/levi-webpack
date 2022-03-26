@@ -23,6 +23,10 @@ export const algorithmMenu = {
           name: 'tree',
           path: '/algorithm/base/tree',
         },
+        {
+          name: 'other',
+          path: '/algorithm/base/other',
+        },
       ],
     },
   ],
