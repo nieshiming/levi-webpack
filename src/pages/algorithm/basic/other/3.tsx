@@ -4,31 +4,48 @@ import { Button } from 'antd'
 import React, { FC } from 'react'
 
 const Basic: FC = () => {
-  const solution = (isBadVersion) => (n) => {
-    let start = 1
-    let mid = Math.floor(n / 2)
+  /**
+ * @param {number} n
+ * @return {number}
 
-    while (mid < n) {
-      if (isBadVersion(mid)) {
-        n = mid
-      } else {
-        start = mid + 1
-      }
+    1层 1种
+    2层 2， 1 + 1 2种
 
-      mid = Math.floor((start + n) / 2)
+    3层 
+        1 + (3 - 1)2层  2种
+        2 + (3 - 2)1层  1种
+
+    4层
+        1 + (4 - 1)层  3层 3种
+        2 + (4 - 2)层  2层 2种
+
+    5层
+        1 + 4层   
+        2 + 3层
+ */
+
+  const climbStairs = (n) => {
+    const stepObj = {
+      1: 1,
+      2: 2,
     }
-    return mid
+
+    for (let i = 3; i <= n; i++) {
+      stepObj[i] = stepObj[i - 1] + stepObj[i - 2]
+    }
+
+    return stepObj[n]
   }
 
-  console.log(solution)
+  console.log(climbStairs)
 
   return (
     <Button
       type="link"
       target="_blank"
-      href="https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnto1s/"
+      href="https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xn854d/"
     >
-      第一个错误的版本
+      爬楼梯
     </Button>
   )
 }
