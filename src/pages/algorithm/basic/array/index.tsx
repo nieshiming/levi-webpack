@@ -17,7 +17,7 @@ import Levi13 from './13'
 
 const tabArr = [
   { tab: <One />, title: '从排序数组中删除重复项' },
-  { tab: <Six />, title: '买卖股票的最佳时机' },
+  { tab: <Six />, title: '买卖股票的最佳时机 II' },
   { tab: <Seven />, title: '旋转数组' },
   { tab: <Eight />, title: '重复元素' },
   { tab: <Nine />, title: '只出现一次的数字' },
