@@ -23,6 +23,16 @@ module.exports = merge(config.base, {
     compress: true,
     historyApiFallback: true,
     static: config.resolvePath('../dist'),
+    proxy: {
+      '/api': {
+        target: 'https://api.oick.cn/lishi/api.php',
+        pathRewrite: { '^/api': '' },
+        // 默认情况下不接受运行在https，且使用无效证书的后端服务器， 如果需要使用设置secure: false
+        secure: false,
+        // target是域名的话，需要这个参数
+        changeOrigin: true,
+      },
+    },
   },
   module: {
     rules: [],
