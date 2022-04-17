@@ -30,7 +30,7 @@
     "@babel/runtime": "^7.15.3",
     "@babel/runtime-corejs3": "^7.15.3",
     "antd": "^4.16.11",
-    "axios": "^0.23.0",
+    "axios": "^0.26.1",
     "core-js": "^3.18.3",
     "levi-util": "^1.0.21",
     "lodash": "^4.17.21",
